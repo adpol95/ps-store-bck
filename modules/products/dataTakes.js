@@ -1024,7 +1024,7 @@ module.exports = async function () {
     const res = await Products.find();
     if (!!res[0] === false) {
 
-        for (let i = 1; i < 3; i++) {
+        for (let i = 1; i < 5; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-tr/pages/browse/' + i);
             const data = await firstTake.text();
             console.log(i);
