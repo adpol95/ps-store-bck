@@ -4,7 +4,7 @@ const dbConnection = require('./modules/core/db');
 const errorHandler = require('./modules/core/errorHandler');
 const cors = require('./modules/core/cors');
 const routes = require('./modules/core/routes');
-const getData = require('./modules/products/dataTakes');
+const getData = require('./modules/products/outterDatas');
 
 
 const express = require('express');

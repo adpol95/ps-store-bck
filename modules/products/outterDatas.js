@@ -1,7 +1,7 @@
 const Products = require('./Model');
+const jsdom = require("jsdom");
 
 module.exports = async function () {
-
     class InnerProd {
         constructor(mCover, dImgs, rDate, pText, tms, mText, wBox) {
             this.mainCover = mCover;
@@ -1021,36 +1021,50 @@ module.exports = async function () {
     };
     const gamesList = [];
 
-    const res = await Products.find();
-    if (!!res[0] === false) {
+    const {JSDOM} = jsdom;
 
-        for (let i = 1; i < 5; i++) {
-            const firstTake = await fetch('https://store.playstation.com/en-tr/pages/browse/' + i);
-            const data = await firstTake.text();
+
+
+    const mongoHasDatas = await Products.find();
+    if (!!mongoHasDatas[0] === false) {
+
+        for (let i = 1; i < 2; i++) {
+            const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
+            const htmlText = await firstTake.text();
+            const dom = await new JSDOM(htmlText).window.document;
             console.log(i);
-            const ul = data.slice(data.indexOf('psw-grid-list psw-l-grid'), data.lastIndexOf('class="psw-l-stack-center" data-qa="ems-sdk-bottom-paginator-root')).split('<li class="psw-l-w-1/2@mobile-s psw-l-w-1/2@mobile-l psw-l-w-1/6@tablet-l psw-l-w-1/4@tablet-s psw-l-w-1/6@laptop psw-l-w-1/8@desktop psw-l-w-1/8@max"');
-            ul.shift();
+            const titles = dom.getElementsByClassName("psw-t-body psw-c-t-1 psw-t-truncate-2 psw-m-b-2");
+            const images = dom.getElementsByClassName("psw-fade-in psw-top-left psw-l-fit-cover");
+            const domens = dom.getElementsByClassName("psw-link psw-content-link");
             const readyGame = {};
-            for (let j = 0; j < ul.length; j++) {
-                const currentTitle = ul[j].slice(ul[j].indexOf('m-b-2') + 7, ul[j].lastIndexOf('</span'));
-                const currentCover = ul[j].slice(ul[j].lastIndexOf('https://'), ul[j].lastIndexOf('"/></noscript'));
-                const currentDomen = ul[j].slice(ul[j].indexOf('/en-tr/concept/'), ul[j].indexOf('noopener noreferrer') - 7);
-                const fTake = await fetch('https://store.playstation.com' + currentDomen);
-                const gamesData = await fTake.text();
-                const gameInfoUl = gamesData.slice(gamesData.indexOf('<dl'), gamesData.indexOf('</dl'));
-                const newSort = gameInfoUl.split('>').filter(el => el.includes('</dt') || el.includes('</dd') || el.includes('</span'));
-                const gameFullInfo = newSort.map(el => el.slice(0, el.indexOf('<'))).filter(el => el);
 
-                readyGame[currentTitle] = {
-                    'Cover': currentCover
-                }
-                gameFullInfo.forEach((el, i) => {
-                    if (i === 0 || i % 2 === 0) {
-                        readyGame[currentTitle][el] = ''
-                    } else {
-                        readyGame[currentTitle][gameFullInfo[i - 1]] = el;
+            for (let j = 0; j < titles.length; j++) {
+                const inTheGame = await (await fetch('https://store.playstation.com' + domens[j].href)).text(); //
+                const domInTheGame = await new JSDOM(inTheGame).window.document;
+                const agedNode = domInTheGame.getElementsByClassName("psw-c-bg-0 psw-t-subtitle")[0].firstChild;
+                const keysToGameInfo = [...domInTheGame.getElementsByClassName("psw-p-l-6 psw-p-l-0@tablet-s psw-l-w-1/2 psw-l-w-1/6@tablet-s psw-l-w-1/6@tablet-l psw-l-w-1/24@laptop psw-l-w-1/12@desktop psw-l-w-1/12@max")];
+                const valuesToGameInfo = [...domInTheGame.getElementsByClassName("psw-p-r-6 psw-p-r-0@tablet-s psw-t-bold psw-l-w-1/2 psw-l-w-1/6@tablet-s psw-l-w-1/6@tablet-l psw-l-w-1/8@laptop psw-l-w-1/6@desktop psw-l-w-1/6@max")];
+                keysToGameInfo.pop();
+                valuesToGameInfo.pop();
+                readyGame[titles[j].textContent] = {
+                    "Cover": images.href,
+                    "Developer": domInTheGame.getElementsByClassName("psw-t-overline psw-t-bold")[0].textContent,
+                    "Rating": domInTheGame.getElementsByClassName("psw-t-subtitle psw-t-bold psw-l-line-center")[0].textContent,
+                    "Price": domInTheGame.getElementsByClassName("psw-t-title-m")[0].textContent,
+                    "Compatibility": [...domInTheGame
+                        .getElementsByClassName("psw-l-columns psw-l-max-3 psw-t-secondary psw-l-space-y-1 psw-p-0 psw-m-0 psw-list-style-none")[0]
+                        .getElementsByClassName("psw-l-line-none psw-l-space-x-xs psw-l-shrink-wrap")].map(el => el.textContent),
+                    "Age": {
+                        "ESRBImg": agedNode.firstChild.firstChild.lastChild.firstChild.src,
+                        "TopDescipt": agedNode.lastChild.firstChild.textContent,
+                        "BottomDescipt": agedNode.lastChild.lastChild.textContent,
+                    },
+                    "GameInfo": domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].textContent,
+                    "AdditionalInfo": {
+                        keys: keysToGameInfo.map(el => el.textContent),
+                        values: valuesToGameInfo.map(el => el.textContent)
                     }
-                })
+                }
             }
             gamesList.push(readyGame)
         }
@@ -1068,4 +1082,5 @@ module.exports = async function () {
                 console.log(err);
             })
     }
+
 }
