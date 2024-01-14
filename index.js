@@ -4,7 +4,8 @@ const dbConnection = require('./modules/core/db');
 const errorHandler = require('./modules/core/errorHandler');
 const cors = require('./modules/core/cors');
 const routes = require('./modules/core/routes');
-const getData = require('./modules/products/outterDatas');
+const getProducts = require('./modules/products/outterDatas');
+const getNews = require('./modules/news/outterDatas');
 
 
 const express = require('express');
@@ -17,9 +18,16 @@ dbConnection(app);
 cors(app);
 routes(app);
 errorHandler(app);
-getData()
+getProducts()
     .then(() => {
-        console.log('2.Data is updated')
+        console.log('Request for products is succeeded')
+    })
+    .catch((err) => {
+        console.log(err);
+    })
+getNews()
+    .then(() => {
+        console.log('Request for news is succeeded')
     })
     .catch((err) => {
         console.log(err);
