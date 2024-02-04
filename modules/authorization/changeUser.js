@@ -1,5 +1,5 @@
 const user = require('./Model')
-function cardUpdateById(req, res) {
+function changeUser(req, res) {
   user
     .findByIdAndUpdate(req.params.cardId, req.body)
     .exec()
@@ -10,4 +10,4 @@ function cardUpdateById(req, res) {
     })
 }
 
-module.exports = cardUpdateById;
+module.exports = changeUser;

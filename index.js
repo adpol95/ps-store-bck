@@ -18,6 +18,7 @@ dbConnection(app);
 cors(app);
 routes(app);
 errorHandler(app);
+
 getProducts()
     .then(() => {
         console.log('Request for products is succeeded')

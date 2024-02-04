@@ -1,6 +1,6 @@
 const user = require("./Model");
 
-function cardDelete(req, res) {
+function deleteUser(req, res) {
   user
     .findByIdAndDelete(req.params.cardId)
     .then(() => res.status(200).json('User deleted'))
@@ -10,4 +10,4 @@ function cardDelete(req, res) {
     })
 }
 
-module.exports = cardDelete;
+module.exports = deleteUser;
