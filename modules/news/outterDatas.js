@@ -20,7 +20,7 @@ module.exports = async function () {
                 const titles = dom.getElementsByClassName("post-card__title-link");
                 const domens = dom.getElementsByClassName("post-card__image-link");
                 const readyNews = [];
-                for (let j = 0; j < titles.length; j++) {
+                for (let j = 0; j < 6; j++) {
                     const inTheNews = await (await fetch(domens[j].href)).text();
                     const domInTheNews = await new JSDOM(inTheNews).window.document;
                     const allImgs = [...domInTheNews.getElementsByClassName("article-main-section")[0].getElementsByTagName("img")].map(el => el.src);

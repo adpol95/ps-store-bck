@@ -1035,7 +1035,7 @@ module.exports = async function () {
             const domens = dom.getElementsByClassName("psw-link psw-content-link");
             const readyGame = {};
 
-            for (let j = 0; j < titles.length; j++) {
+            for (let j = 0; j < 6; j++) {
                 await console.log(titles[j].textContent)
                 const inTheGame = await (await fetch('https://store.playstation.com' + domens[j].href)).text(); //
                 const domInTheGame = await new JSDOM(inTheGame).window.document;
