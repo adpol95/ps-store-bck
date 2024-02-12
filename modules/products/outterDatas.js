@@ -1025,7 +1025,7 @@ module.exports = async function () {
     const mongoHasDatas = await Products.find();
     if (!!mongoHasDatas[0] === false) {
 
-        for (let i = 1; i < 3; i++) {
+        for (let i = 1; i < 2; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
             const htmlText = await firstTake.text();
             const dom = await new JSDOM(htmlText).window.document;

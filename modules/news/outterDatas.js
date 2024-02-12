@@ -13,7 +13,7 @@ module.exports = async function () {
     const mongoHasDatas = await News.find();
     if (!!mongoHasDatas[0] === false) {
         for (let key in newsContainer) {
-            for (let i = 1; i < 3; i++) {
+            for (let i = 1; i < 2; i++) {
                 const firstTake = await fetch('https://blog.playstation.com/category/' + key + '/page/' + i + '/');
                 const htmlText = await firstTake.text();
                 const dom = await new JSDOM(htmlText).window.document;
