@@ -2,7 +2,7 @@ const Products = require('./Model');
 
 module.exports = function (req, res) {
     Products
-        .find({title: "games"})
+        .find({title: "games" + req.body.index})
         .exec()
         .then((resp) => {
             res.status(200).json(resp[0])

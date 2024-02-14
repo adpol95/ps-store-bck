@@ -2,30 +2,14 @@ const mongoose = require('mongoose');
 
 const {Schema} = mongoose;
 const newsSchema = new Schema({
-    ps5: {
-        type: Array,
+    title: {
+        type: String,
         required: true,
         unique: true,
     },
-    psvr2: {
+    value: {
         type: Array,
         required: true,
-        unique: true,
-    },
-    ps4: {
-        type: Array,
-        required: true,
-        unique: true,
-    },
-    psstore: {
-        type: Array,
-        required: true,
-        unique: true,
-    },
-    psplus: {
-        type: Array,
-        required: true,
-        unique: true,
     },
 
 });

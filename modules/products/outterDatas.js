@@ -1019,13 +1019,12 @@ module.exports = async function () {
                 ]
             ),
     };
-    const gamesList = [];
     const {JSDOM} = jsdom;
 
     const mongoHasDatas = await Products.find();
     if (!!mongoHasDatas[0] === false) {
 
-        for (let i = 1; i < 2; i++) {
+        for (let i = 1; i < 4; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
             const htmlText = await firstTake.text();
             const dom = await new JSDOM(htmlText).window.document;
@@ -1067,20 +1066,20 @@ module.exports = async function () {
                     }
                 }
             }
-            gamesList.push(readyGame)
+            const games = new Products({
+                title: "games" + i,
+                value: readyGame
+            })
+            await games
+                .save()
+                .then(() => {
+                    console.log('Products is updated');
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
         }
-        const games = new Products({
-            title: "games",
-            value: gamesList[0]
-        })
-        await games
-            .save()
-            .then(() => {
-                console.log('Products is updated');
-            })
-            .catch((err) => {
-                console.log(err);
-            })
+
         const consoles = new Products({
             title: "consoles",
             value: consoleList

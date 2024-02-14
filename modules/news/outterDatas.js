@@ -3,18 +3,18 @@ const jsdom = require("jsdom");
 
 module.exports = async function () {
     const {JSDOM} = jsdom;
-    const newsContainer = {
-        "ps5": [],
-        "playstation-vr2": [],
-        "ps4": [],
-        "ps-store": [],
-        "ps-plus": []
-    }
+    const newsContainer = [
+        "ps5",
+        "ps-vr2",
+        "ps4",
+        "ps-store",
+        "ps-plus"
+    ]
     const mongoHasDatas = await News.find();
-    if (!!mongoHasDatas[0] === false) {
-        for (let key in newsContainer) {
-            for (let i = 1; i < 2; i++) {
-                const firstTake = await fetch('https://blog.playstation.com/category/' + key + '/page/' + i + '/');
+    if (!!mongoHasDatas[0] === false) { //
+        for (const elem of newsContainer) {
+            for (let i = 1; i < 3; i++) {
+                const firstTake = await fetch('https://blog.playstation.com/category/' + elem + '/page/' + i + '/');
                 const htmlText = await firstTake.text();
                 const dom = await new JSDOM(htmlText).window.document;
                 const titles = dom.getElementsByClassName("post-card__title-link");
@@ -42,25 +42,21 @@ module.exports = async function () {
                         mainText: mainTextProperNodes.map(el => [el.nodeName, el.textContent]),
                     })
                 }
-                newsContainer[key].push(readyNews)
+                const news = new News({
+                    title: elem + "page" + i,
+                    value: readyNews
+                })
+                await news
+                    .save()
+                    .then(() => {
+                        console.log('News is updated');
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    })
             }
         }
-        const news = new News({
-            ps5: newsContainer.ps5,
-            psvr2: newsContainer["playstation-vr2"],
-            ps4: newsContainer.ps4,
-            psstore: newsContainer["ps-store"],
-            psplus: newsContainer["ps-plus"]
-        })
-            await news
-                .save()
-                .then(() => {
-                    console.log('News is updated');
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-        }
-    else
+
+    } else
         console.log("News is already updated")
-    }
+}
