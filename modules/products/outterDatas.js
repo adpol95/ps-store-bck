@@ -3,6 +3,7 @@ const jsdom = require("jsdom");
 
 module.exports = async function () {
     class InnerProd {
+
         constructor(mCover, dImgs, rDate, pText, tms, mText, wBox) {
             this.mainCover = mCover;
             this.descriptionImgs = dImgs;
