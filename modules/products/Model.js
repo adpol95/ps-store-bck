@@ -2,17 +2,12 @@ const mongoose = require('mongoose');
 
 const {Schema} = mongoose;
 const productsSchema = new Schema({
-    games: {
-        type: Array,
+    title: {
+        type: String,
         required: true,
         unique: true,
     },
-    consoles: {
-        type: Object,
-        required: true,
-        unique: true,
-    },
-    accessories: {
+    value: {
         type: Object,
         required: true,
         unique: true,

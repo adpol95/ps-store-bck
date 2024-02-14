@@ -1035,7 +1035,7 @@ module.exports = async function () {
             const domens = dom.getElementsByClassName("psw-link psw-content-link");
             const readyGame = {};
 
-            for (let j = 0; j < 6; j++) {
+            for (let j = 0; j < titles.length; j++) {
                 await console.log(titles[j].textContent)
                 const inTheGame = await (await fetch('https://store.playstation.com' + domens[j].href)).text(); //
                 const domInTheGame = await new JSDOM(inTheGame).window.document;
@@ -1069,12 +1069,35 @@ module.exports = async function () {
             }
             gamesList.push(readyGame)
         }
-        const product = new Products({
-            games: gamesList,
-            consoles: consoleList,
-            accessories: accessoriesList
+        const games = new Products({
+            title: "games",
+            value: gamesList[0]
         })
-        await product
+        await games
+            .save()
+            .then(() => {
+                console.log('Products is updated');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        const consoles = new Products({
+            title: "consoles",
+            value: consoleList
+        })
+        await consoles
+            .save()
+            .then(() => {
+                console.log('Products is updated');
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+        const acces = new Products({
+            title: "accessories",
+            value: accessoriesList
+        })
+        await acces
             .save()
             .then(() => {
                 console.log('Products is updated');
