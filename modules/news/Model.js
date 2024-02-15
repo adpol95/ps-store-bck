@@ -5,13 +5,19 @@ const newsSchema = new Schema({
     title: {
         type: String,
         required: true,
-        unique: true,
     },
-    value: {
-        type: Array,
+    img: {
+        type: String,
         required: true,
     },
-
+    page: {
+        type: String,
+        required: true,
+    },
+    value: {
+        type: Object,
+        required: true,
+    }
 });
 
-module.exports = mongoose.model('News', newsSchema);
+module.exports = newsSchema;

@@ -10,7 +10,6 @@ const gamesSchema = new Schema({
     img: {
         type: String,
         required: true,
-        unique: true,
     },
     page: {
         type: String,

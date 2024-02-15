@@ -1,6 +1,11 @@
-const News = require('./Model');
+const schema = require('./Model');
+const mongoose = require('mongoose');
 const jsdom = require("jsdom");
-
+const Ps5 = mongoose.model('PS5', schema);
+const PsVr2 = mongoose.model('Ps-Vr2', schema);
+const PS4 = mongoose.model('PS4', schema);
+const PsStore = mongoose.model('Ps-Store', schema);
+const PsPlus = mongoose.model('Ps-Plus', schema);
 module.exports = async function () {
     const {JSDOM} = jsdom;
     const newsContainer = [
@@ -10,8 +15,8 @@ module.exports = async function () {
         "ps-store",
         "ps-plus"
     ]
-    const mongoHasDatas = await News.find();
-    if (!!mongoHasDatas[0] === false) { //
+    const mongoHasDatas = await PsPlus.find();
+    if (!!mongoHasDatas[0] === false) {
         for (const elem of newsContainer) {
             for (let i = 1; i < 3; i++) {
                 const firstTake = await fetch('https://blog.playstation.com/category/' + elem + '/page/' + i + '/');
@@ -19,7 +24,6 @@ module.exports = async function () {
                 const dom = await new JSDOM(htmlText).window.document;
                 const titles = dom.getElementsByClassName("post-card__title-link");
                 const domens = dom.getElementsByClassName("post-card__image-link");
-                const readyNews = [];
                 for (let j = 0; j < titles.length; j++) {
                     const inTheNews = await (await fetch(domens[j].href)).text();
                     const domInTheNews = await new JSDOM(inTheNews).window.document;
@@ -31,32 +35,35 @@ module.exports = async function () {
                         el.nodeName === "FIGURE" ||
                         el.nodeName === "A" ||
                         el.nodeName === "DIV");
-                    readyNews.push({
-                        titleTop: titles[j].textContent,
-                        dataTime: domInTheNews.getElementsByClassName("entry-date published")[0].textContent,
-                        topImg: allImgs.shift(),
-                        headerTitle: domInTheNews.getElementsByClassName("post-single__sub-header-text")[0].textContent,
-                        authorName: domInTheNews.getElementsByClassName("author-name")[0].textContent,
-                        authorDescription: domInTheNews.getElementsByClassName("author-description")[0].textContent,
-                        mainImgs: allImgs,
-                        mainText: mainTextProperNodes.map(el => [el.nodeName, el.textContent]),
+                    const node = new (elem === "ps5" ?
+                        Ps5 : elem === "ps-vr2" ?
+                            PsVr2 : elem === "ps4" ?
+                                PS4 : elem === "ps-store" ?
+                                    PsStore : PsPlus)({
+                        title: titles[j].textContent.trim(),
+                        img: allImgs.shift(),
+                        page: i,
+                        value: {
+                            titleTop: titles[j].textContent.trim(),
+                            dataTime: domInTheNews.getElementsByClassName("entry-date published")[0].textContent,
+                            topImg: allImgs.shift(),
+                            headerTitle: domInTheNews.getElementsByClassName("post-single__sub-header-text")[0].textContent,
+                            authorName: domInTheNews.getElementsByClassName("author-name")[0].textContent,
+                            authorDescription: domInTheNews.getElementsByClassName("author-description")[0].textContent,
+                            mainImgs: allImgs,
+                            mainText: mainTextProperNodes.map(el => [el.nodeName, el.textContent]),
+                        }
                     })
+                    await node
+                        .save()
+                        .then(() => {
+                            console.log("News" + " " + j + " " + elem + " " + "is updated");
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        })
                 }
-                const news = new News({
-                    title: elem + "page" + i,
-                    value: readyNews
-                })
-                await news
-                    .save()
-                    .then(() => {
-                        console.log('News is updated');
-                    })
-                    .catch((err) => {
-                        console.log(err);
-                    })
             }
         }
-
-    } else
-        console.log("News is already updated")
+    } else console.log("All news already updated!")
 }

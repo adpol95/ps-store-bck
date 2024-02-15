@@ -1,10 +1,11 @@
 const Router = require('express');
-const getAllData = require('./dataGetAll');
-const ps5 = require('./getOverall');
+const getListNews = require("./getListOfNews");
+const getNews = require("./getNewsData");
 
 const router = Router();
 
-router.get('/', getAllData)
-router.post('/overall', ps5)
+router.post('/listofnews', getListNews);
+router.post('/news', getNews);
+
 
 module.exports = router;
