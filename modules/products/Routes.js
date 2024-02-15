@@ -1,14 +1,19 @@
 const Router = require('express');
-const getGames = require('./getGames');
-const getAcccessories = require('./getAccessories.js');
-const getConsoles = require('./getConsoles');
-const getAll = require('./dataGetAll');
+const getListGames = require('./getListOfGames');
+const getGame = require('./getGameData');
+const getAcccessor = require('./getAccessorData');
+const getConsole = require('./getConsoleData');
+const getListAccess = require('./getListOfAccessories.js');
+const getListConsoles = require('./getListOfConsoles.js');
 
 const router = Router();
 
-router.get('/', getAll)
-router.post('/games', getGames)
-router.get('/accessories', getAcccessories)
-router.get('/consoles', getConsoles)
+router.post('/listofgames', getListGames);
+router.post('/game', getGame);
+router.get('/listofaccessories', getListAccess);
+router.post('/accessor', getAcccessor);
+router.get('/listofconsoles', getListConsoles);
+router.post('/console', getConsole);
+
 
 module.exports = router;

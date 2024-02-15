@@ -1,8 +1,8 @@
-const Games = require('./ModelOfGames');
+const Consoles = require('./ModelOfConsoles');
 
-module.exports = async function (req, res) {
-    await Games
-        .find()
+module.exports = function (req, res) {
+    Consoles
+        .find({title: req.body.name}, "value")
         .exec()
         .then((resp) => {
             res.status(200).json(resp)

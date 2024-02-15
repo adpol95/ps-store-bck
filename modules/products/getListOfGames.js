@@ -1,11 +1,11 @@
-const Products = require('./Model');
+const Games = require('./ModelOfGames');
 
 module.exports = function (req, res) {
-    Products
-        .find({title: "games" + req.body.index})
+    Games
+        .find({page: req.body.index}, "title img")
         .exec()
         .then((resp) => {
-            res.status(200).json(resp[0])
+            res.status(200).json(resp)
         })
         .catch((err) => {
             console.log(err);
