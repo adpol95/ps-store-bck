@@ -5,7 +5,7 @@ const getNews = require("./getNewsData");
 const router = Router();
 
 router.post('/listofnews', getListNews);
-router.post('/news', getNews);
+router.post('/page', getNews);
 
 
 module.exports = router;
