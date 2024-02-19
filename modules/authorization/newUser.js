@@ -7,6 +7,8 @@ function newUser(req, res) {
         country: req.body.country,
         avatar: req.body.avatar,
         birthDay: req.body.birthDay,
+        friends: [],
+        reqForFriends: {none: ""}
     });
 
 

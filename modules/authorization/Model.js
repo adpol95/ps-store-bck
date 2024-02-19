@@ -22,8 +22,15 @@ const userSchema = new Schema({
   birthDay: {
     type: String,
     required: true,
+  },
+  friends: {
+    type: Array,
+    required: true,
+  },
+  reqForFriends: {
+    type: Object,
+    required: true,
   }
-
 });
 
 const userModel = mongoose.model('User', userSchema);
