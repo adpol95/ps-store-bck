@@ -1,7 +1,11 @@
-const Games = require('./ModelOfGames');
-const Consoles = require('./ModelOfConsoles');
-const Accessories = require('./ModelOfAccessories');
+const schemaNonGames = require('./ModelOfNewsOrConsOrAccess.js');
+const schemaOfGames = require('./ModelOfGames.js');
+const mongoose = require('mongoose');
 const jsdom = require("jsdom");
+
+const cnls = mongoose.model('CONSOLES', schemaNonGames);
+const aces = mongoose.model('ACCESSORIES', schemaNonGames);
+const gms = mongoose.model('GAMES', schemaOfGames);
 
 module.exports = async function () {
     class InnerProd {
@@ -1023,42 +1027,52 @@ module.exports = async function () {
             ),
     };
 
-    for (let consoleKey in consoleList) {
-        const console = new Consoles({
-            title: consoleKey,
-            img: consoleList[consoleKey].mainCover,
-            value: consoleList[consoleKey]
-        })
-        await console
-            .save()
-            .then(() => {
+
+    const mongoHasDatas2 = await cnls.find();
+    if (!!mongoHasDatas2[0] === false) {
+        for (let consoleKey in consoleList) {
+            const console = new cnls({
+                title: consoleKey,
+                img: consoleList[consoleKey].mainCover,
+                page: "1",
+                value: consoleList[consoleKey]
             })
-            .catch((err) => {
-            })
+            await console
+                .save()
+                .then(() => {
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }
-
-    for (let accessKey in accessoriesList) {
-        const a = accessKey.includes("DualSense") ? ""
-            : accessKey.includes("DUALSHOCK") ? "Jet Black"
-                : accessKey.includes("Covers") ? "Midnight Black"
-                    : accessKey.includes("NVMe") ? "1TB"
-                        : null;
-        const access = new Accessories({
-            title: accessKey,
-            img: accessoriesList[accessKey]["mainCover"] ? accessoriesList[accessKey]["mainCover"] : accessoriesList[accessKey]["allImgsAndTitles"][a][0],
-            value: accessoriesList[accessKey]
-        })
-
-        await access
-            .save()
-            .then(() => {
+    const mongoHasDatas3 = await aces.find();
+    if (!!mongoHasDatas3[0] === false) {
+        for (let accessKey in accessoriesList) {
+            const a = accessKey.includes("DualSense") ? ""
+                : accessKey.includes("DUALSHOCK") ? "Jet Black"
+                    : accessKey.includes("Covers") ? "Midnight Black"
+                        : accessKey.includes("NVMe") ? "1TB"
+                            : null;
+            const access = new aces({
+                title: accessKey,
+                img: accessoriesList[accessKey]["mainCover"] ? accessoriesList[accessKey]["mainCover"] : accessoriesList[accessKey]["allImgsAndTitles"][a][0],
+                page: "1",
+                value: accessoriesList[accessKey]
             })
-            .catch((err) => {
-            })
+
+            await access
+                .save()
+                .then(() => {
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }
     const {JSDOM} = jsdom;
 
-    const mongoHasDatas = await Games.find();
+    const mongoHasDatas = await gms.find();
     if (!!mongoHasDatas[0] === false) {
 
         for (let i = 1; i < 4; i++) {
@@ -1082,29 +1096,27 @@ module.exports = async function () {
                 keysToGameInfo.pop();
                 valuesToGameInfo.pop();
 
-                const games = new Games({
+                const games = new gms({
                     title: titles[j].textContent,
                     img: readyImg,
                     page: i + "",
-                    value: {
-                        "Cover": readyImg,
-                        "BackgroundImg": background ? background.firstChild.src.replace('54&thumb', '5000&thumb').replace('true', 'false') : "",
-                        "Developer": domInTheGame.getElementsByClassName("psw-t-overline psw-t-bold")[0].textContent,
-                        "Rating": rating ? rating.textContent : "",
-                        "Price": domInTheGame.getElementsByClassName("psw-t-title-m")[0].textContent,
-                        "Compatibility": [...domInTheGame
-                            .getElementsByClassName("psw-l-columns psw-l-max-3 psw-t-secondary psw-l-space-y-1 psw-p-0 psw-m-0 psw-list-style-none")[0]
-                            .getElementsByClassName("psw-l-line-none psw-l-space-x-xs psw-l-shrink-wrap")].map(el => el.textContent),
-                        "Age": {
-                            "ESRBImg": agedNode.firstChild.firstChild.lastChild.firstChild.src,
-                            "TopDescipt": agedNode.lastChild.firstChild.textContent,
-                            "BottomDescipt": agedNode.length > 2 ? agedNode.lastChild.lastChild.textContent : "",
-                        },
-                        "GameInfo": domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].textContent,
-                        "AdditionalInfo": {
-                            keys: keysToGameInfo.map(el => el.textContent),
-                            values: valuesToGameInfo.map(el => el.textContent)
-                        }
+                    Cover: readyImg,
+                    BackgroundImg: background ? background.firstChild.src.replace('54&thumb', '5000&thumb').replace('true', 'false') : "",
+                    Developer: domInTheGame.getElementsByClassName("psw-t-overline psw-t-bold")[0].textContent,
+                    Rating: rating ? rating.textContent : null,
+                    Price: domInTheGame.getElementsByClassName("psw-t-title-m")[0].textContent,
+                    Compatibility: [...domInTheGame
+                        .getElementsByClassName("psw-l-columns psw-l-max-3 psw-t-secondary psw-l-space-y-1 psw-p-0 psw-m-0 psw-list-style-none")[0]
+                        .getElementsByClassName("psw-l-line-none psw-l-space-x-xs psw-l-shrink-wrap")].map(el => el.textContent),
+                    Age: {
+                        "ESRBImg": agedNode.firstChild.firstChild.lastChild.firstChild.src,
+                        "TopDescipt": agedNode.lastChild.firstChild.textContent,
+                        "BottomDescipt": agedNode.length > 2 ? agedNode.lastChild.lastChild.textContent : "",
+                    },
+                    GameInfo: domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].textContent,
+                    AdditionalInfo: {
+                        keys: keysToGameInfo.map(el => el.textContent),
+                        values: valuesToGameInfo.map(el => el.textContent)
                     }
                 })
 

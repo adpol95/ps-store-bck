@@ -4,8 +4,8 @@ const dbConnection = require('./modules/core/db');
 const errorHandler = require('./modules/core/errorHandler');
 const cors = require('./modules/core/cors');
 const routes = require('./modules/core/routes');
-const getProducts = require('./modules/products/outterDatas');
-const getNews = require('./modules/news/outterDatas');
+const getProducts = require('./modules/newsAndProducts/outterDatasProducts.js');
+const getNews = require('./modules/newsAndProducts/outterDatasNews.js');
 
 
 const express = require('express');
@@ -29,7 +29,7 @@ getProducts()
     })
 getNews()
     .then(() => {
-        console.log('Request for news is succeeded')
+        console.log('Request for newsAndProducts is succeeded')
     })
     .catch((err) => {
         console.log(err);

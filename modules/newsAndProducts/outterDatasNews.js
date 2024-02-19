@@ -1,4 +1,4 @@
-const schema = require('./Model');
+const schema = require('./ModelOfNewsOrConsOrAccess.js');
 const mongoose = require('mongoose');
 const jsdom = require("jsdom");
 const Ps5 = mongoose.model('PS5', schema);
@@ -65,5 +65,5 @@ module.exports = async function () {
                 }
             }
         }
-    } else console.log("All news already updated!")
+    } else console.log("All newsAndProducts already updated!")
 }
