@@ -27,11 +27,11 @@ const newsSchema = new Schema({
         required: true,
     },
     Rating: {
-        type: String,
+        type: Number,
         required: true,
     },
     Price: {
-        type: String,
+        type: Number,
         required: true,
     },
     Compatibility: {
@@ -48,6 +48,14 @@ const newsSchema = new Schema({
     },
     AdditionalInfo: {
         type: Object,
+        required: true,
+    },
+    Genre: {
+        type: String,
+        required: true,
+    },
+    Platform: {
+        type: String,
         required: true,
     },
 

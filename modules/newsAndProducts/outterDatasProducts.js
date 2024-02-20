@@ -1075,7 +1075,7 @@ module.exports = async function () {
     const mongoHasDatas = await gms.find();
     if (!!mongoHasDatas[0] === false) {
 
-        for (let i = 1; i < 4; i++) {
+        for (let i = 1; i < 11; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
             const htmlText = await firstTake.text();
             const dom = await new JSDOM(htmlText).window.document;
@@ -1095,6 +1095,9 @@ module.exports = async function () {
                 const readyImg = images[j].firstChild.src.replace('54&thumb', '620&thumb').replace('true', 'false')
                 keysToGameInfo.pop();
                 valuesToGameInfo.pop();
+                const priceReady = domInTheGame.getElementsByClassName("psw-t-title-m")[0].textContent.replace(/\$/, "");
+                const prepareAditInfoKeys = keysToGameInfo.map(el => el.textContent);
+                const prepareAditInfoValues = valuesToGameInfo.map(el => el.textContent);
 
                 const games = new gms({
                     title: titles[j].textContent,
@@ -1103,8 +1106,8 @@ module.exports = async function () {
                     Cover: readyImg,
                     BackgroundImg: background ? background.firstChild.src.replace('54&thumb', '5000&thumb').replace('true', 'false') : "",
                     Developer: domInTheGame.getElementsByClassName("psw-t-overline psw-t-bold")[0].textContent,
-                    Rating: rating ? rating.textContent : null,
-                    Price: domInTheGame.getElementsByClassName("psw-t-title-m")[0].textContent,
+                    Rating: rating ? Number(rating.textContent) : null,
+                    Price: priceReady === "Free" ? 0 : Number(priceReady),
                     Compatibility: [...domInTheGame
                         .getElementsByClassName("psw-l-columns psw-l-max-3 psw-t-secondary psw-l-space-y-1 psw-p-0 psw-m-0 psw-list-style-none")[0]
                         .getElementsByClassName("psw-l-line-none psw-l-space-x-xs psw-l-shrink-wrap")].map(el => el.textContent),
@@ -1115,9 +1118,11 @@ module.exports = async function () {
                     },
                     GameInfo: domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].textContent,
                     AdditionalInfo: {
-                        keys: keysToGameInfo.map(el => el.textContent),
-                        values: valuesToGameInfo.map(el => el.textContent)
-                    }
+                        keys: prepareAditInfoKeys,
+                        values: prepareAditInfoValues
+                    },
+                    Genre: prepareAditInfoValues[prepareAditInfoKeys.indexOf("Genre:")],
+                    Platform: prepareAditInfoValues[prepareAditInfoKeys.indexOf("Platform:")]
                 })
 
                 await games
