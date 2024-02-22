@@ -8,10 +8,9 @@ function newUser(req, res) {
         avatar: req.body.avatar,
         birthDay: req.body.birthDay,
         friends: [],
-        reqForFriends: {none: ""}
+        reqForFriends: {none: ""},
+        isOnline: false
     });
-
-
 
     mongoUser
         .save()

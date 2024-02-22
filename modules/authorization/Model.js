@@ -30,6 +30,10 @@ const userSchema = new Schema({
   reqForFriends: {
     type: Object,
     required: true,
+  },
+  isOnline: {
+    type: Boolean,
+    required: true,
   }
 });
 
