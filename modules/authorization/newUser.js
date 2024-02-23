@@ -9,7 +9,8 @@ function newUser(req, res) {
         birthDay: req.body.birthDay,
         friends: [],
         reqForFriends: {none: ""},
-        isOnline: false
+        isOnline: false,
+        favorite: {studios: [], games: []}
     });
 
     mongoUser

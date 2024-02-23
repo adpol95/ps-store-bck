@@ -1072,8 +1072,8 @@ module.exports = async function () {
     }
     const {JSDOM} = jsdom;
 
-    const mongoHasDatas = await gms.find();
-    if (!!mongoHasDatas[0] === false) {
+    // const mongoHasDatas = await gms.find();
+    // if (!!mongoHasDatas[0] === false) {
 
         for (let i = 1; i < 11; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
@@ -1135,5 +1135,5 @@ module.exports = async function () {
                     })
             }
         }
-    } else console.log("Products is already updated")
+    // } else console.log("Products is already updated")
 }

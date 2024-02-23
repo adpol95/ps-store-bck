@@ -18,7 +18,7 @@ module.exports = function (req, res) {
                                                 {$gte: 2, $lte: 3} : req.body.filter.value === "4-5" ?
                                                     {$gte: 4, $lte: 5} : req.body.filter.value === "5" ?
                                                         {$gte: 5} : new RegExp(req.body.filter.value, 'gi')
-        } : {page: req.body.index}, "title img")
+        } : req.body.favorite ? undefined : {page: req.body.index}, req.body.favorite ? "Developer" : "title img _id")
         .exec()
         .then((resp) => {
             res.status(200).json(resp)

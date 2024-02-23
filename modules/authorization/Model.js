@@ -34,6 +34,10 @@ const userSchema = new Schema({
   isOnline: {
     type: Boolean,
     required: true,
+  },
+  favorite: {
+    type: Object,
+    required: true,
   }
 });
 

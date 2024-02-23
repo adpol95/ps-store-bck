@@ -20,20 +20,23 @@ cors(app);
 routes(app);
 errorHandler(app);
 
-getProducts()
-    .then(() => {
-        console.log('Request for products is succeeded')
-    })
-    .catch((err) => {
-        console.log(err);
-    })
-getNews()
-    .then(() => {
-        console.log('Request for newsAndProducts is succeeded')
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+setInterval(async () => {
+    getProducts()
+        .then(() => {
+            console.log('Request for products is succeeded')
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    getNews()
+        .then(() => {
+            console.log('Request for newsAndProducts is succeeded')
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}, 25920000)
+
 
 app.listen(PORT, () => {
     console.log(`Examples for host ${PORT}`)
