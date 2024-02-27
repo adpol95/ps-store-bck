@@ -20,7 +20,7 @@ cors(app);
 routes(app);
 errorHandler(app);
 
-setInterval(async () => {
+// setInterval(async () => {
     getProducts()
         .then(() => {
             console.log('Request for products is succeeded')
@@ -28,14 +28,14 @@ setInterval(async () => {
         .catch((err) => {
             console.log(err);
         })
-    getNews()
-        .then(() => {
-            console.log('Request for newsAndProducts is succeeded')
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-}, 25920000)
+    // getNews()
+    //     .then(() => {
+    //         console.log('Request for newsAndProducts is succeeded')
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
+// }, 25920000)
 
 
 app.listen(PORT, () => {

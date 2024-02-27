@@ -8,9 +8,8 @@ const aces = mongoose.model('ACCESSORIES', schemaNonGames);
 const gms = mongoose.model('GAMES', schemaOfGames);
 
 module.exports = async function () {
-    class InnerProd {
-
-        constructor(mCover, dImgs, rDate, pText, tms, mText, wBox) {
+    class consolesOrAccessTemplateWithoutColors {
+        constructor(mCover, dImgs, rDate, pText, tms, mText, wBox, prc) {
             this.mainCover = mCover;
             this.descriptionImgs = dImgs;
             this.realiseDate = rDate;
@@ -18,21 +17,23 @@ module.exports = async function () {
             this.terms = tms;
             this.mainText = mText;
             this.whatInTheBox = wBox;
+            this.price = prc;
         }
     }
 
-    class InnerProdWithColors {
-        constructor(aIAT, rDate, pText, tms, mText) {
+    class consolesOrAccessTemplateWithColors {
+        constructor(aIAT, rDate, pText, tms, mText, prc) {
             this.allImgsAndTitles = aIAT;
             this.realiseDate = rDate;
             this.previewText = pText;
             this.terms = tms;
             this.mainText = mText;
+            this.price = prc;
         }
     }
 
     const consoleList = {
-        ['PlayStation®5 Console – Marvel’s Spider-Man 2 Bundle']: new InnerProd(
+        ['PlayStation®5 Console – Marvel’s Spider-Man 2 Bundle']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/ps5-spider-man-2-standard-bundle-box-esrb-us-hero1.jpg?$Background_Large$',
             [
                 'https://media.direct.playstation.com/is/image/sierialto/ps5-spider-man-2-standard-bundle-box-esrb-us-hero1.jpg?$Background_Large$',
@@ -78,9 +79,10 @@ module.exports = async function () {
                 'Printed materials',
                 'Marvel’s Spider-Man 2 full game voucher*',
                 'ASTRO’s PLAYROOM (Pre-installed game)**'
-            ]
+            ],
+            "599.99"
         ),
-        ['PlayStation®5 Console – Call of Duty® Modern Warfare® III Bundle (model group – slim)']: new InnerProd(
+        ['PlayStation®5 Console – Call of Duty® Modern Warfare® III Bundle (model group – slim)']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/PS5-Console-CODMWIII-Hero-1-EN-US?$Background_Large$',
             [
                 'https://media.direct.playstation.com/is/image/sierialto/PS5Slim-Model-Group-Hero?$Background_Large$',
@@ -153,14 +155,17 @@ module.exports = async function () {
                 'Printed materials',
                 'Call of Duty®: Modern Warfare® III and Lockpick Operator Pack voucher',
                 'ASTRO\'s PLAYROOM (Pre-installed game)'
-            ]
+            ],
+            "599.99",
         ),
-        ['PlayStation®5 Console (model group - slim)']: new InnerProd(
-            'https://media.direct.playstation.com/is/image/sierialto/PS5-Hero-2?$Background_Large$',
+        ['PlayStation®5 Console (model group - slim)']: new consolesOrAccessTemplateWithoutColors(
+            'https://media.direct.playstation.com/is/image/sierialto/PS5-Disc-Slim-New-Hero-1?$Background_Large$',
             [
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Hero-Packshot-us?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Hero-1?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/ps5-slim-model-hero-new?$Background_Large$',
                 'https://media.direct.playstation.com/is/image/sierialto/PS5-Hero-3?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Hero-Packshot-US-2?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-SLIM-Hero-Box-US-V2?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-SLIM-Hero-Box-and-Console-US-V2?$Background_Large$'
             ],
             '20 November, 2023',
             'The PS5® console* unleashes new gaming possibilities that you never anticipated.\n' +
@@ -229,9 +234,10 @@ module.exports = async function () {
                 'USB cable',
                 'Printed materials',
                 'ASTRO\'s PLAYROOM (Pre-installed game)'
-            ]
+            ],
+            "499.99",
         ),
-        ['PlayStation®5 Digital Edition Console']: new InnerProd(
+        ['PlayStation®5 Digital Edition Console']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-front-with-dualsense?$Background_Large$',
             [
                 'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-angle-shot?$Background_Large$',
@@ -272,7 +278,89 @@ module.exports = async function () {
                 'HDMI® cable',
                 'AC power cord',
                 'Printed materials'
-            ]
+            ],
+            "399.99",
+        ),
+        ['PlayStation®5 Digital Edition Console (model group - slim)']: new consolesOrAccessTemplateWithoutColors(
+            'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-New-Hero-1-v2?$Background_Large$',
+            [
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero1?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero2?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero3?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-US-V2?$Background_Large$',
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-and-console-US-V2?$Background_Large$'
+            ],
+            '19 November, 2023',
+            'The PS5® Digital Edition* unleashes new gaming possibilities that you never anticipated.\n' +
+            '\n' +
+            'Experience lightning-fast loading with an ultra-high-speed SSD, deeper immersion with support for haptic feedback, adaptive triggers and 3D Audio** and an all-new generation of incredible PlayStation® games.\n' +
+            '\n' +
+            'PS5 Digital Edition is an all-digital version of the PS5 console with no disc drive. Sign into your account for PlayStation Network and go to PlayStation®Store to buy and download games',
+            [
+                'Due to high demand, there is a limit of 1 console per order.',
+                'Vertical stand sold separately.',
+                '*DISC-FREE CONSOLE - Internet connection and an account for PlayStation™Network required',
+                'Only 1 DualSense included.',
+                'PS5 consoles will ship separately.',
+                'A signature will be required upon delivery for this product.',
+            ],
+            [
+                {
+                    title: 'Key Features',
+                    descript: [
+                        'Slim Design\n' +
+                        'With PS5® Digital Edition, players get powerful gaming technology packed inside a sleek and compact console design.\n' +
+                        '\n' +
+                        '1TB of Storage\n' +
+                        'Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.****\n' +
+                        '\n' +
+                        'Ultra-High Speed SSD\n' +
+                        'Maximize your play sessions with near instant load times for installed PS5® games.\n' +
+                        '\n' +
+                        'Integrated I/O\n' +
+                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.' +
+                        'Ray Tracing\n' +
+                        'Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5® games.\n' +
+                        '\n' +
+                        '4K-TV Gaming\n' +
+                        'Play your favorite PS5® games on your stunning 4K TV.\n' +
+                        '\n' +
+                        'Up to 120fps with 120Hz output\n' +
+                        'Enjoy smooth and fluid high frame rate gameplay at up to 120fps for compatible games, with support for 120Hz output on 4K displays.\n' +
+                        '\n' +
+                        'HDR Technology\n' +
+                        'With an HDR TV, supported PS5® games display an unbelievably vibrant and lifelike range of colors.\n' +
+                        '\n' +
+                        'Tempest 3D AudioTech\n' +
+                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech*** in supported games.' +
+                        'Haptic Feedback\n' +
+                        'Experience haptic feedback via the DualSense® wireless controller in select PS5® titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.\n' +
+                        '\n' +
+                        'Adaptive Triggers\n' +
+                        'Get to grips with immersive adaptive triggers, featuring dynamic resistance levels which simulate the physical impact of in-game activities in select PS5® games.\n' +
+                        '\n' +
+                        'Includes ASTRO’S Playroom\n' +
+                        'Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense® wireless controller, in this game included for all PS5® console users.\n' +
+                        '\n' +
+                        'Backwards Compatibility & Game Boost\n' +
+                        'The PS5® console can play over 4,000 PS4® games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4® console’s greatest games.' +
+                        'Apple Music\n' +
+                        '\n' +
+                        'Get up to six months of Apple Music at no extra cost with your PS5® console and play millions of songs and thousands of playlists, ad-free'
+                    ]
+                },
+            ],
+            [
+                'PlayStation®5 Digital Edition',
+                'DualSense™ Wireless Controller',
+                '1TB SSD',
+                'DualSense™ USB charging cable',
+                'ASTROs PLAYROOM (Pre-installed game)',
+                'HDMI® cable',
+                'AC power cord',
+                'Printed materials'
+            ],
+            "449.99",
         ),
         ['PlayStation®4 Console – Call of Duty® Modern Warfare II Bundle']: {
             mainCover: 'https://media.direct.playstation.com/is/image/sierialto/PS4-COD-MW2-bundle-box-front?$Hero_Desktop$',
@@ -293,14 +381,15 @@ module.exports = async function () {
                 'Includes voucher code to download Call of Duty® Modern Warfare® II game. Account for PlayStation™Network and broadband Internet required to download.',
                 'Vertical Standard sold separately.',
                 'A signature will be required upon delivery for this product.'
-            ]
+            ],
+            price: '239.00',
         }
 
     };
     const accessoriesList = {
-        ['DualSense™ Wireless Controller']: new InnerProdWithColors(
+        ['DualSense™ Wireless Controller']: new consolesOrAccessTemplateWithColors(
             {
-                '': [
+                'White': [
                     'https://media.direct.playstation.com/is/image/sierialto/dualsense-ps5-controller-white-accessory-front?$Background_Large$',
                     'https://media.direct.playstation.com/is/image/sierialto/dualsense-ps5-controller-accessory-top-left?$Background_Large$',
                     'https://media.direct.playstation.com/is/image/sierialto/dualsense-ps5-controller-accessory-top?$Background_Large$',
@@ -414,9 +503,10 @@ module.exports = async function () {
                         'Learn how the DualSense wireless controller brings these experiences to life here.',
                     ]
                 }
-            ]
+            ],
+            '74.99'
         ),
-        ['DUALSHOCK®4 Wireless Controller for PS4™']: new InnerProdWithColors(
+        ['DUALSHOCK®4 Wireless Controller for PS4™']: new consolesOrAccessTemplateWithColors(
             {
                 'Jet Black': [
                     'https://media.direct.playstation.com/is/image/sierialto/dualshock-ps4-controller-black-accessory-front?$Background_Large$',
@@ -473,9 +563,10 @@ module.exports = async function () {
 
                     ]
                 },
-            ]
+            ],
+            '49.99'
         ),
-        ['PS5™ Console Covers']: new InnerProdWithColors(
+        ['PS5™ Console Covers']: new consolesOrAccessTemplateWithColors(
             {
                 'Midnight Black': [
                     'https://media.direct.playstation.com/is/image/sierialto/PS5-Console-Covers-MidnightBlack-Hero-1?$Background_Large$',
@@ -560,9 +651,58 @@ module.exports = async function () {
                         'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
                     ]
                 }
-            ]
+            ],
+            '49.99'
         ),
-        ['WD BLACK™ SN850P NVMe™ SSD for PS5™ consoles']: new InnerProdWithColors(
+        ['PS5™ Console Covers (model group - slim)']: new consolesOrAccessTemplateWithColors(
+            {
+                'Midnight Black': [
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-PS5-Console-Covers-Black-Hero-1?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Black-Hero-2?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Black-Hero-3-US?$Background_Large$'
+                ],
+                'Sterling Silver': [
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Silver-Hero-1?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Cover-Silver-Hero-2?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Cover-Silver-Hero-3-US?$Background_Large$',
+                ],
+                'Volcanic Red': [
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Cover-VolcanicRed-Hero-1?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Cover-VolcanicRed-Hero-2?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Cover-VolcanicRed-Hero-3-US?$Background_Large$',
+                ],
+                'Cobalt Blue': [
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Cobaltblue-Hero-1?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Cobaltblue-Hero-2?$Background_Large$',
+                    'https://media.direct.playstation.com/is/image/sierialto/Slim-Console-Covers-Cobaltblue-Hero-3-US?$Background_Large$',
+                ]
+            },
+            '14 October, 2023',
+            'Explore exciting gaming frontiers with new covers for your PlayStation®5 console.* Pair them with a matching DualSense™ wireless controller to complete the look.**Restyle your gaming setup with the alluring metallic Cobalt Blue PS5® console cover*. Easy to install onto PS5 consoles, the covers are inspired by the powerful hues found in the depths of our planet and then elevated with a metallic finish for a touch of sophistication. Complete the look with a matching DualSense™ wireless controller** or contrast it with the fiery Volcanic Red or sleek Sterling Silver.',
+            [
+                'These covers are compatible with PS5 consoles with a disc drive only.',
+                'These covers are compatible with PS5 consoles (model group - slim)* and PlayStation®5 Digital Edition Console (model group - slim)*',
+                'PS5 console, vertical stand, console covers, and DualSense wireless controller sold separately.'
+            ],
+            [
+                {
+                    title: 'PS5 Console Covers Key Features',
+                    descript: [
+                       'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.\n' +
+                       '\n' +
+                       ' \n' +
+                       '\n' +
+                       'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.\n' +
+                       '\n' +
+                       ' \n' +
+                       '\n' +
+                       'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
+                    ]
+                }
+            ],
+            '59.99'
+        ),
+        ['WD BLACK™ SN850P NVMe™ SSD for PS5™ consoles']: new consolesOrAccessTemplateWithColors(
             {
                 '1TB': [
                     'https://media.direct.playstation.com/is/image/sierialto/WD-2TB-Storage-Hero1?$Background_Large$',
@@ -614,10 +754,11 @@ module.exports = async function () {
                         'Play directly from the drive and eliminate the need to transfer or delete games from your console with tested and approved storage for your PS5™ console.'
                     ]
                 }
-            ]
+            ],
+            ['139.99', '209.99', '389.99'],
         ),
         ['PULSE Elite™ wireless headset - PS5']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/Elite-Hero-1-new?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/Elite-Hero-2-new?$Background_Large$',
@@ -680,10 +821,11 @@ module.exports = async function () {
                     'Mounting plate*',
                     'USB cable',
                     'Printed materials',
-                ]
+                ],
+                '149.99'
             ),
         ['PULSE Explore™ wireless earbuds - PS5']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/Explore-Hero-1-new?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/Explore-Hero-2-new?$Background_Large$',
@@ -750,10 +892,11 @@ module.exports = async function () {
                     '6 Earbud tips',
                     'USB cable',
                     'Printed materials',
-                ]
+                ],
+                '199.00'
             ),
         ['PlayStation Link™ USB adapter']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/LinkAdapter-Hero-v3?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/LinkAdapter-Hero-2?$Background_Large$',
@@ -785,10 +928,11 @@ module.exports = async function () {
                         ]
                     }
                 ],
-                []
+                [],
+                '24.99'
             ),
         ['Sony 27” INZONE M9 4K HDR 144Hz Gaming Monitor']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/sony-inzone-m9-4k-monitor-front-inset-logos?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/sony-inzone-m9-4k-monitor-angle?$Background_Large$',
@@ -829,10 +973,11 @@ module.exports = async function () {
                     'Color calibration factory report',
                     'INZONE sticker',
                     'Printed materials'
-                ]
+                ],
+                '699.99'
             ),
         ['Sony 27” INZONE M3 Full HD HDR 240Hz Gaming Monitor']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/sony-inzone-m3-hd-monitor-front-inset-logos?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/sony-inzone-m3-hd-monitor-angle?$Background_Large$',
@@ -870,10 +1015,11 @@ module.exports = async function () {
                     'Color calibration factory report',
                     'INZONE sticker',
                     'Printed materials'
-                ]
+                ],
+                '499.99'
             ),
         ['DualSense™ Charging Station']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/DualSense-Charging-Station-Hero-1?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/dualsense-charging-station-ps5-accessory-front?$Background_Large$',
@@ -895,10 +1041,11 @@ module.exports = async function () {
                         ]
                     }
                 ],
-                []
+                [],
+                '29.99'
             ),
         ['PlayStation VR2 Sense™ Controller Charging Station']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/PSVR2-Charging-Station-Hero-1?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/PS-VR2-Sense-ChargingStation?$Background_Large$',
@@ -925,10 +1072,11 @@ module.exports = async function () {
                     'AC power cord',
                     'Charging adaptors x2',
                     'Instruction manual'
-                ]
+                ],
+                '49.99'
             ),
         ['PlayStation®VR2']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/PS-VR2-Hero?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/PS-VR2?$Background_Large$',
@@ -970,10 +1118,11 @@ module.exports = async function () {
                     'Stereo headphones',
                     'Three pairs of earpieces',
                     'Printed materials'
-                ]
+                ],
+                '549.99'
             ),
         ['PlayStation®VR2 Horizon Call of the Mountain™ Bundle']:
-            new InnerProd(
+            new consolesOrAccessTemplateWithoutColors(
                 'https://media.direct.playstation.com/is/image/sierialto/PS-VR2-Horizon-Bundle-Hero-ESRB-US?$Background_Large$',
                 [
                     'https://media.direct.playstation.com/is/image/sierialto/PS-VR2-Horizon-bundle-main-angle?$Background_Large$',
@@ -1023,7 +1172,8 @@ module.exports = async function () {
                     'Stereo headphones',
                     'Three pairs of earpieces',
                     'Printed materials'
-                ]
+                ],
+                '599.99'
             ),
     };
 
@@ -1049,7 +1199,7 @@ module.exports = async function () {
     const mongoHasDatas3 = await aces.find();
     if (!!mongoHasDatas3[0] === false) {
         for (let accessKey in accessoriesList) {
-            const a = accessKey.includes("DualSense") ? ""
+            const a = accessKey.includes("DualSense") ? "White"
                 : accessKey.includes("DUALSHOCK") ? "Jet Black"
                     : accessKey.includes("Covers") ? "Midnight Black"
                         : accessKey.includes("NVMe") ? "1TB"
@@ -1064,6 +1214,7 @@ module.exports = async function () {
             await access
                 .save()
                 .then(() => {
+                    console.log(accessKey + " is added")
                 })
                 .catch((err) => {
                     console.log(err)
@@ -1072,10 +1223,10 @@ module.exports = async function () {
     }
     const {JSDOM} = jsdom;
 
-    // const mongoHasDatas = await gms.find();
-    // if (!!mongoHasDatas[0] === false) {
+    const mongoHasDatas = await gms.find();
+    if (!!mongoHasDatas[0] === false) {
 
-        for (let i = 1; i < 11; i++) {
+        for (let i = 1; i < 2; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
             const htmlText = await firstTake.text();
             const dom = await new JSDOM(htmlText).window.document;
@@ -1135,5 +1286,5 @@ module.exports = async function () {
                     })
             }
         }
-    // } else console.log("Products is already updated")
+    } else console.log("Products is already updated")
 }

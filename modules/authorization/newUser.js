@@ -10,7 +10,10 @@ function newUser(req, res) {
         friends: [],
         reqForFriends: {none: ""},
         isOnline: false,
-        favorite: {studios: [], games: []}
+        favorite: {studios: [], games: []},
+        cart: {none: ""},
+        ownership: {games: [], consoles: [], accessories: []},
+        wallet: 0
     });
 
     mongoUser

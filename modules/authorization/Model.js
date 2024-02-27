@@ -38,6 +38,18 @@ const userSchema = new Schema({
   favorite: {
     type: Object,
     required: true,
+  },
+  cart: {
+    type: Object,
+    required: true,
+  },
+  ownership: {
+    type: Object,
+    required: true,
+  },
+  wallet: {
+    type: Number,
+    required: true,
   }
 });
 
