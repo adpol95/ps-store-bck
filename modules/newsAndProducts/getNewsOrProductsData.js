@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 
 module.exports = function (req, res) {
-    const schema = require(req.body.type === "games" ? "./ModelOfGames.js" : "./ModelOfNewsOrConsOrAccess.js");
+    const gameIs = req.body.type === "games";
+    const schema = require(gameIs? "./ModelOfGames.js" : "./ModelOfNewsOrConsOrAccess.js");
     const node = mongoose.model(req.body.type, schema);
     node
-        .find({title: req.body.name}, req.body.type === "games" ? "" : "value")
+        .find({title: req.body.name})
         .exec()
         .then((resp) => {
-            res.status(200).json(resp)
+            res.status(200).json(gameIs ? resp : {title: resp[0].title, img: resp[0].img, _id: resp[0]["_id"], ...resp[0].value})
         })
         .catch((err) => {
             console.log(err);

@@ -40,7 +40,7 @@ const userSchema = new Schema({
     required: true,
   },
   cart: {
-    type: Object,
+    type: Array,
     required: true,
   },
   ownership: {

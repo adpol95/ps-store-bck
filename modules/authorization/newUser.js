@@ -11,7 +11,7 @@ function newUser(req, res) {
         reqForFriends: {none: ""},
         isOnline: false,
         favorite: {studios: [], games: []},
-        cart: {none: ""},
+        cart: req.body.cart,
         ownership: {games: [], consoles: [], accessories: []},
         wallet: 0
     });
