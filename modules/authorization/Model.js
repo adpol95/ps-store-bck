@@ -50,7 +50,11 @@ const userSchema = new Schema({
   wallet: {
     type: Number,
     required: true,
-  }
+  },
+  solved: {
+    type: Object,
+    required: true,
+  },
 });
 
 const userModel = mongoose.model('User', userSchema);

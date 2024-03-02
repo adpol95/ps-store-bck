@@ -6,6 +6,7 @@ const cors = require('./modules/core/cors');
 const routes = require('./modules/core/routes');
 const getProducts = require('./modules/newsAndProducts/outterDatasProducts.js');
 const getNews = require('./modules/newsAndProducts/outterDatasNews.js');
+const getConundrums = require('./modules/conundrums/outerDataGet.js');
 
 
 const express = require('express');
@@ -20,21 +21,29 @@ cors(app);
 routes(app);
 errorHandler(app);
 
+
+getConundrums()
+    .then(() => {
+        console.log('Conun for products is succeeded')
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 // setInterval(async () => {
-    getProducts()
-        .then(() => {
-            console.log('Request for products is succeeded')
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    // getNews()
-    //     .then(() => {
-    //         console.log('Request for newsAndProducts is succeeded')
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
+// getProducts()
+//     .then(() => {
+//         console.log('Request for products is succeeded')
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
+// getNews()
+//     .then(() => {
+//         console.log('Request for newsAndProducts is succeeded')
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     })
 // }, 25920000)
 
 

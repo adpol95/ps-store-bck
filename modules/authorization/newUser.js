@@ -13,7 +13,18 @@ function newUser(req, res) {
         favorite: {studios: [], games: []},
         cart: req.body.cart,
         ownership: {games: [], consoles: [], accessories: []},
-        wallet: 0
+        wallet: 0,
+        solved: {
+            riddles: {
+                easy: "",
+                kids: "",
+                funny: "",
+                math: "",
+                word: "",
+                hard: ""
+            },
+            schoolPrg: ""
+        }
     });
 
     mongoUser
