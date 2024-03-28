@@ -1267,12 +1267,12 @@ module.exports = async function () {
                         "TopDescipt": agedNode.lastChild.firstChild.textContent,
                         "BottomDescipt": agedNode.length > 2 ? agedNode.lastChild.lastChild.textContent : "",
                     },
-                    GameInfo: domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].textContent,
+                    GameInfo: [...domInTheGame.getElementsByClassName("psw-c-t-2 psw-p-x-7 psw-p-y-6 psw-p-x-6@below-tablet-s psw-m-sub-x-7 psw-m-auto@below-tablet-s psw-c-bg-card-1")[0].childNodes].filter(el => el.textContent).map(el => el.textContent),
                     AdditionalInfo: {
                         keys: prepareAditInfoKeys,
                         values: prepareAditInfoValues
                     },
-                    Genre: prepareAditInfoValues[prepareAditInfoKeys.indexOf("Genre:")],
+                    Genre: prepareAditInfoValues[prepareAditInfoKeys.indexOf("Genres:")],
                     Platform: prepareAditInfoValues[prepareAditInfoKeys.indexOf("Platform:")]
                 })
 

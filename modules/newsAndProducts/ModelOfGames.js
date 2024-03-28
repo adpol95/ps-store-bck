@@ -44,7 +44,7 @@ const newsSchema = new Schema({
         required: true,
     },
     GameInfo: {
-        type: String,
+        type: Array,
         required: true,
     },
     AdditionalInfo: {
