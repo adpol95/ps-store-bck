@@ -15,8 +15,8 @@ module.exports = async function () {
         "ps-store",
         "ps-plus"
     ]
-    // const mongoHasDatas = await PsPlus.find();
-    // if (!!mongoHasDatas[0] === false) {
+    const mongoHasDatas = await PsPlus.find();
+    if (!!mongoHasDatas[0] === false) {
         for (const elem of newsContainer) {
             for (let i = 1; i < 3; i++) {
                 const firstTake = await fetch('https://blog.playstation.com/category/' + elem + '/page/' + i + '/');
@@ -65,5 +65,5 @@ module.exports = async function () {
                 }
             }
         }
-   // } else console.log("All newsAndProducts already updated!")
+   } else console.log("All newsAndProducts already updated!")
 }
