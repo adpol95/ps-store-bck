@@ -15,6 +15,11 @@ const newsSchema = new Schema({
         type: String,
         required: true,
     },
+    Price: {
+        type: Number,
+        required: true,
+    },
+
     value: {
         type: Object,
         required: true,

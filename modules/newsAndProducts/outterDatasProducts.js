@@ -36,11 +36,11 @@ module.exports = async function () {
         ['PlayStation®5 Console – Marvel’s Spider-Man 2 Bundle']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/ps5-spider-man-2-standard-bundle-box-esrb-us-hero1.jpg?$Background_Large$',
             [
-                'https://media.direct.playstation.com/is/image/sierialto/ps5-spider-man-2-standard-bundle-box-esrb-us-hero1.jpg?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-miles-combat?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-symbiote-slam?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-kraven?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/whats-in-the-box-ps5-MSM2?$Background_Large$'
+                "https://media.direct.playstation.com/is/image/sierialto/ps5-spider-man-2-standard-bundle-box-esrb-us-hero1.jpg?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-miles-combat?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-symbiote-slam?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/ps5-marvel-spider-man2-kraven?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/whats-in-the-box-ps5-MSM2?$Background_Large$"
             ],
             'October 20, 2023',
             'Swing your way through Marvel’s New York with the PlayStation®5 Console – Marvel’s Spider-Man 2 Bundle. Experience Marvel’s Spider-Man 2 with PS5 innovations. Feel the force of web-swinging with adaptive triggers, while haptic feedback responds to Peter Parker’s new symbiote abilities and Miles Morales’ evolved bio-electric skills.',
@@ -54,14 +54,14 @@ module.exports = async function () {
             ],
             [
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-SM2-Minor-1?$Minor_Section_Desktop$'],
                     title: 'PlayStation®5 Console Features',
-                    descript: [
-                        'Lightning Speed - Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation® console can do. ',
-                        'Stunning Games - Marvel at incredible graphics and experience new PS5™ features. Play a back catalog of supported PS4™ games. ',
-                        'Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio*** technology.'
-                    ]
+                    descript: ['Lightning Speed - Harness the power of a custom CPU, GPU, and SSD with Integrated I/O that rewrite the rules of what a PlayStation® console can do. \s Stunning Games - Marvel at incredible graphics and experience new PS5™ features. Play a back catalog of supported PS4™ games. \s Breathtaking Immersion - Discover a deeper gaming experience with support for haptic feedback, adaptive triggers, and 3D Audio*** technology.']
+
                 },
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/PS5-DISC-SM2-Minor-2?$Minor_Section_Desktop$',
+                        'https://media.direct.playstation.com/is/image/sierialto/PS5-DISC-SM2-Minor-3?$Minor_Section_Desktop$'],
                     title: 'Game Features',
                     descript: [
                         'Experience an original Marvel’s Spider-Man single player story. Switch between two playable Spider-Men, Peter Parker and Miles Morales, while exploring Marvel’s New York. Wield Peter Parker’s new symbiote abilities and Miles Morales’ explosive bio-electric venom powers. Fight a rogues’ gallery of Marvel’s Super Villains – including Kraven the Hunter, Lizard, an original take on Venom, and many more!',
@@ -70,6 +70,7 @@ module.exports = async function () {
                 }
             ],
             [
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Slim-Disc-SM2-Bundle-new-whatsinbox?$InTheBox_Desktop$',
                 'PlayStation®5 console',
                 'DualSense™ wireless controller',
                 'Base',
@@ -85,10 +86,10 @@ module.exports = async function () {
         ['PlayStation®5 Console – Call of Duty® Modern Warfare® III Bundle (model group – slim)']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/PS5-Console-CODMWIII-Hero-1-EN-US?$Background_Large$',
             [
-                'https://media.direct.playstation.com/is/image/sierialto/PS5Slim-Model-Group-Hero?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Console-CODMWIII-Hero-2-EN-US?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Hero-4?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Hero-5?$Background_Large$'
+                "https://media.direct.playstation.com/is/image/sierialto/PS5Slim-Model-Group-Hero?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Console-CODMWIII-Hero-2-EN-US?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Hero-4?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Hero-5?$Background_Large$"
             ],
             '10 November, 2023',
             'Squad up with the PlayStation®5 Console – Call of Duty®: Modern Warfare® III Bundle and fight alongside Task Force 141 like never before on PS5®.*\n' +
@@ -107,6 +108,7 @@ module.exports = async function () {
             ],
             [
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Minor-1?$Minor_Section_Desktop$', 'https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Minor-2?$Minor_Section_Desktop$'],
                     title: 'Fight like never before on PS5',
                     descript: [
                         'ADAPT OR DIE IN A FIGHT AGAINST THE ULTIMATE THREAT\n' +
@@ -118,7 +120,7 @@ module.exports = async function () {
                         '\n' +
                         '\n' +
                         'Modern Warfare® III celebrates the 20th anniversary of Call of Duty® with one of the greatest collections of Multiplayer maps ever assembled – both fan favorites and all new ones. All 16 launch maps from the original Modern Warfare® 2 (2009) have been modernized with new modes and gameplay features and will be available at launch to get everyone started, while over 12 all-new core 6v6 maps will fuel post-launch live seasons.\n' +
-                        '\n' +
+                        '\n',
                         'ALL NEW OPEN WORLD ZOMBIES\n' +
                         '\n' +
                         '\n' +
@@ -126,16 +128,17 @@ module.exports = async function () {
                     ]
                 },
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Minor-4?$Minor_Section_Desktop$', 'https://media.direct.playstation.com/is/image/sierialto/CODMWIII-Minor-3?$Minor_Section_Desktop$'],
                     title: 'Key Features',
                     descript: [
                         'With PS5 you can enjoy:\n' +
                         '\n' +
                         'Adaptive Triggers\n' +
                         'Enjoy a greater level of immersion as each in-game weapon feels unique in your hands. Adaptive Triggers vary the level of pressure and tension as you interact with the variety of weapons in-game.\n' +
-                        '\n' +
+                        '\n',
                         'Haptic Feedback\n' +
                         'Get closer to the action with the DualSense™ wireless controller’s haptic feedback. Feel the impact of every blast and move in-game.\n' +
-                        '\n' +
+                        '\n',
                         'Faster Loading\n' +
                         'Get into the action almost instantly with the PlayStation 5 console’s ultra-high-speed SSD and faster load times.\n' +
                         '\n' +
@@ -145,6 +148,7 @@ module.exports = async function () {
                 }
             ],
             [
+                'https://media.direct.playstation.com/is/image/sierialto/COD-whats-in-the-box?$InTheBox_Desktop$',
                 'PlayStation®5 console',
                 'DualSense™ wireless controller',
                 '1TB SSD',
@@ -181,19 +185,23 @@ module.exports = async function () {
             ],
             [
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/ps5-slim-minorsection?$Minor_Section_Desktop$',
+                        'https://media.direct.playstation.com/is/image/sierialto/ps5-minorsection3?$Minor_Section_Desktop$',
+                        'https://media.direct.playstation.com/is/image/sierialto/ps5-slim-minorsection-2?$Minor_Section_Desktop$'],
                     title: 'Key Features',
                     descript: [
                         'Slim Design\n' +
-                        'With PS5®, players get powerful gaming technology packed inside a sleek and compact console design.\n' +
+                        'With PS5® Digital Edition, players get powerful gaming technology packed inside a sleek and compact console design.\n' +
                         '\n' +
                         '1TB of Storage\n' +
-                        'Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.***\n' +
+                        'Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.****\n' +
                         '\n' +
                         'Ultra-High Speed SSD\n' +
                         'Maximize your play sessions with near instant load times for installed PS5® games.\n' +
                         '\n' +
                         'Integrated I/O\n' +
-                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.' +
+                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.',
+
                         'Ray Tracing\n' +
                         'Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5® games.\n' +
                         '\n' +
@@ -206,10 +214,9 @@ module.exports = async function () {
                         'HDR Technology\n' +
                         'With an HDR TV, supported PS5® games display an unbelievably vibrant and lifelike range of colors.\n' +
                         '\n' +
-                        ' \n' +
-                        '\n' +
                         'Tempest 3D AudioTech\n' +
-                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech** in supported games.' +
+                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech*** in supported games.',
+
                         'Haptic Feedback\n' +
                         'Experience haptic feedback via the DualSense® wireless controller in select PS5® titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.\n' +
                         '\n' +
@@ -240,10 +247,10 @@ module.exports = async function () {
         ['PlayStation®5 Digital Edition Console']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-front-with-dualsense?$Background_Large$',
             [
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-angle-shot?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-laying-down-flat?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-box-shot?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/playstation-5-digital-box-contents?$Background_Large$',
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-angle-shot?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-laying-down-flat?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-box-shot?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/playstation-5-digital-box-contents?$Background_Large$"
             ],
             '19 November, 2020',
             'Experience lightning-fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback, adaptive triggers, and 3D audio, and an all-new generation of incredible PlayStation® games.\n' +
@@ -258,18 +265,56 @@ module.exports = async function () {
             ],
             [
                 {
+                    img: ["https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-angle-shot?$Background_Large$",
+                        "https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-laying-down-flat?$Background_Large$",
+                        "https://media.direct.playstation.com/is/image/sierialto/PS5-digital-edition-box-shot?$Background_Large$"],
                     title: 'Key Features',
                     descript: [
-                        'Ultra-High Speed SSD - Maximize your play sessions with near instant load times for installed PS5™ games. \n' +
-                        '4K-TV Gaming - Play your favorite PS5™ games on your stunning 4K TV.\n' +
-                        'Ray Tracing - Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5™ games.\n' +
-                        'Haptic Feedback - Experience haptic feedback via the DualSense wireless controller in select PS5 titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.\n' +
-                        'Adaptive Triggers - Get to grips with immersive adaptive triggers, featuring dynamic resistance levels which simulate the physical impact of in-game activities in select PS5 games.\n' +
-                        'Tempest 3D AudioTech - Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Through your compatible headphones your surroundings truly come alive with Tempest 3D AudioTech* in supported games.'
+                        'Slim Design\n' +
+                        'With PS5® Digital Edition, players get powerful gaming technology packed inside a sleek and compact console design.\n' +
+                        '\n' +
+                        '1TB of Storage\n' +
+                        'Keep your favorite games ready and waiting for you to jump in and play with 1TB of SSD storage built in.****\n' +
+                        '\n' +
+                        'Ultra-High Speed SSD\n' +
+                        'Maximize your play sessions with near instant load times for installed PS5® games.\n' +
+                        '\n' +
+                        'Integrated I/O\n' +
+                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.',
+
+                        'Ray Tracing\n' +
+                        'Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5® games.\n' +
+                        '\n' +
+                        '4K-TV Gaming\n' +
+                        'Play your favorite PS5® games on your stunning 4K TV.\n' +
+                        '\n' +
+                        'Up to 120fps with 120Hz output\n' +
+                        'Enjoy smooth and fluid high frame rate gameplay at up to 120fps for compatible games, with support for 120Hz output on 4K displays.\n' +
+                        '\n' +
+                        'HDR Technology\n' +
+                        'With an HDR TV, supported PS5® games display an unbelievably vibrant and lifelike range of colors.\n' +
+                        '\n' +
+                        'Tempest 3D AudioTech\n' +
+                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech*** in supported games.',
+
+                        'Haptic Feedback\n' +
+                        'Experience haptic feedback via the DualSense® wireless controller in select PS5® titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.\n' +
+                        '\n' +
+                        'Adaptive Triggers\n' +
+                        'Get to grips with immersive adaptive triggers, featuring dynamic resistance levels which simulate the physical impact of in-game activities in select PS5® games.\n' +
+                        '\n' +
+                        'Includes ASTRO’S Playroom\n' +
+                        'Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense® wireless controller, in this game included for all PS5® console users.\n' +
+                        '\n' +
+                        'Backwards Compatibility & Game Boost\n' +
+                        'The PS5® console can play over 4,000 PS4® games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4® console’s greatest games.' +
+                        'Apple Music\n' +
+                        '\n'
                     ]
                 },
             ],
             [
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Slim-Minor-Inthebox-US-V2?$InTheBox_Desktop$',
                 'PlayStation®5 Digital Edition Console',
                 'DualSense™ Wireless Controller',
                 'DualSense™ USB charging cable',
@@ -284,11 +329,11 @@ module.exports = async function () {
         ['PlayStation®5 Digital Edition Console (model group - slim)']: new consolesOrAccessTemplateWithoutColors(
             'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-New-Hero-1-v2?$Background_Large$',
             [
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero1?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero2?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero3?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-US-V2?$Background_Large$',
-                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-and-console-US-V2?$Background_Large$'
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero1?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero2?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Hero3?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-US-V2?$Background_Large$",
+                "https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Hero-Box-and-console-US-V2?$Background_Large$"
             ],
             '19 November, 2023',
             'The PS5® Digital Edition* unleashes new gaming possibilities that you never anticipated.\n' +
@@ -306,6 +351,9 @@ module.exports = async function () {
             ],
             [
                 {
+                    img: ['https://media.direct.playstation.com/is/image/sierialto/ps5-digital-slim-minorsection1?$Minor_Section_Desktop$',
+                    'https://media.direct.playstation.com/is/image/sierialto/ps5-minorsection3?$Minor_Section_Desktop$',
+                    'https://media.direct.playstation.com/is/image/sierialto/ps5-slim-minorsection-2?$Minor_Section_Desktop$'],
                     title: 'Key Features',
                     descript: [
                         'Slim Design\n' +
@@ -318,7 +366,8 @@ module.exports = async function () {
                         'Maximize your play sessions with near instant load times for installed PS5® games.\n' +
                         '\n' +
                         'Integrated I/O\n' +
-                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.' +
+                        'The custom integration of the PS5® console\'s systems lets creators pull data from the SSD so quickly that they can design games in ways never before possible.',
+
                         'Ray Tracing\n' +
                         'Immerse yourself in worlds with a new level of realism as rays of light are individually simulated, creating true-to-life shadows and reflections in supported PS5® games.\n' +
                         '\n' +
@@ -332,7 +381,8 @@ module.exports = async function () {
                         'With an HDR TV, supported PS5® games display an unbelievably vibrant and lifelike range of colors.\n' +
                         '\n' +
                         'Tempest 3D AudioTech\n' +
-                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech*** in supported games.' +
+                        'Immerse yourself in soundscapes where it feels as if the sound comes from every direction. Your surroundings truly come alive with Tempest 3D AudioTech*** in supported games.',
+
                         'Haptic Feedback\n' +
                         'Experience haptic feedback via the DualSense® wireless controller in select PS5® titles and feel the effects and impact of your in-game actions through dynamic sensory feedback.\n' +
                         '\n' +
@@ -343,14 +393,12 @@ module.exports = async function () {
                         'Explore four worlds, each one showcasing innovative gameplay using the versatile features of the DualSense® wireless controller, in this game included for all PS5® console users.\n' +
                         '\n' +
                         'Backwards Compatibility & Game Boost\n' +
-                        'The PS5® console can play over 4,000 PS4® games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4® console’s greatest games.' +
-                        'Apple Music\n' +
-                        '\n' +
-                        'Get up to six months of Apple Music at no extra cost with your PS5® console and play millions of songs and thousands of playlists, ad-free'
+                        'The PS5® console can play over 4,000 PS4® games. With the Game Boost feature, you can even enjoy faster and smoother frame rates in some of the PS4® console’s greatest games.'
                     ]
                 },
             ],
             [
+                'https://media.direct.playstation.com/is/image/sierialto/PS5-Digital-Slim-Minor-Whatsinthebox-US-V2?$InTheBox_Desktop$',
                 'PlayStation®5 Digital Edition',
                 'DualSense™ Wireless Controller',
                 '1TB SSD',
@@ -384,7 +432,6 @@ module.exports = async function () {
             ],
             price: '239.00',
         }
-
     };
     const accessoriesList = {
         ['DualSense™ Wireless Controller']: new consolesOrAccessTemplateWithColors(
@@ -688,15 +735,15 @@ module.exports = async function () {
                 {
                     title: 'PS5 Console Covers Key Features',
                     descript: [
-                       'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.\n' +
-                       '\n' +
-                       ' \n' +
-                       '\n' +
-                       'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.\n' +
-                       '\n' +
-                       ' \n' +
-                       '\n' +
-                       'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
+                        'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.\n' +
+                        '\n' +
+                        ' \n' +
+                        '\n' +
+                        'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.\n' +
+                        '\n' +
+                        ' \n' +
+                        '\n' +
+                        'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
                     ]
                 }
             ],
@@ -1185,6 +1232,7 @@ module.exports = async function () {
                 title: consoleKey,
                 img: consoleList[consoleKey].mainCover,
                 page: "1",
+                Price: consoleList[consoleKey].price,
                 value: consoleList[consoleKey]
             })
             await console
@@ -1226,7 +1274,7 @@ module.exports = async function () {
     const mongoHasDatas = await gms.find();
     if (!!mongoHasDatas[0] === false) {
 
-        for (let i = 1; i < 2; i++) {
+        for (let i = 1; i < 5; i++) {
             const firstTake = await fetch('https://store.playstation.com/en-us/pages/browse/' + i);
             const htmlText = await firstTake.text();
             const dom = await new JSDOM(htmlText).window.document;
