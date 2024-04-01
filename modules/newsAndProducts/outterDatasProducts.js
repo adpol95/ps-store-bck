@@ -352,8 +352,8 @@ module.exports = async function () {
             [
                 {
                     img: ['https://media.direct.playstation.com/is/image/sierialto/ps5-digital-slim-minorsection1?$Minor_Section_Desktop$',
-                    'https://media.direct.playstation.com/is/image/sierialto/ps5-minorsection3?$Minor_Section_Desktop$',
-                    'https://media.direct.playstation.com/is/image/sierialto/ps5-slim-minorsection-2?$Minor_Section_Desktop$'],
+                        'https://media.direct.playstation.com/is/image/sierialto/ps5-minorsection3?$Minor_Section_Desktop$',
+                        'https://media.direct.playstation.com/is/image/sierialto/ps5-slim-minorsection-2?$Minor_Section_Desktop$'],
                     title: 'Key Features',
                     descript: [
                         'Slim Design\n' +
@@ -519,39 +519,39 @@ module.exports = async function () {
                 {
                     title: 'Heighten Your Senses™',
                     descript: [
-                        'Bring gaming worlds to life',
-                        'Feel your in-game actions and environment simulated through haptic feedback.**',
-                        'Experience varying force and tension at your fingertips with adaptive triggers.**',
-                        'Find your voice, share your passion',
-                        'Chat online through the built-in microphone.***',
-                        'Connect a headset directly via the 3.5mm jack.',
-                        'Switch voice capture on and off using the dedicated mute button.',
-                        'Record and broadcast your epic gaming moments with the create button.**',
-                        'A gaming icon in your hands',
-                        'Enjoy a comfortable, evolved design with an iconic layout and enhanced sticks.',
-                        'Charge and play with a built-in battery and USB Type-C****.',
-                        'Intuitively interact with select games using the integrated motion sensor.',
+                        'Bring gaming worlds to life\n' +
+                        'Feel your in-game actions and environment simulated through haptic feedback.**\n' +
+                        'Experience varying force and tension at your fingertips with adaptive triggers.**\n' +
+                        'Find your voice, share your passion\n' +
+                        'Chat online through the built-in microphone.***\n' +
+                        'Connect a headset directly via the 3.5mm jack.\n' +
+                        'Switch voice capture on and off using the dedicated mute button.\n' +
+                        'Record and broadcast your epic gaming moments with the create button.**\n' +
+                        'A gaming icon in your hands\n' +
+                        'Enjoy a comfortable, evolved design with an iconic layout and enhanced sticks.\n' +
+                        'Charge and play with a built-in battery and USB Type-C****.\n' +
+                        'Intuitively interact with select games using the integrated motion sensor.\n' +
                         'Hear higher-fidelity* sound effects through the built-in speaker in supported games.'
                     ]
                 },
                 {
                     title: 'Raise your game on Apple devices',
                     descript: [
-                        'Pair the controller with your compatible iPad, iPhone, Mac or Apple TV***** via Bluetooth®.',
-                        'Play thousands of controller-supported games, including those on Apple Arcade.',
-                        'Stream compatible games from your PS4™ or PS5™ console to your iPad, iPhone, or Mac and play using the PS Remote Play App******.',
-                        'Bring intuitive control to compatible games with touch pad and motion sensor support.',
+                        'Pair the controller with your compatible iPad, iPhone, Mac or Apple TV***** via Bluetooth®.\n' +
+                        'Play thousands of controller-supported games, including those on Apple Arcade.\n' +
+                        'Stream compatible games from your PS4™ or PS5™ console to your iPad, iPhone, or Mac and play using the PS Remote Play App******.\n' +
+                        'Bring intuitive control to compatible games with touch pad and motion sensor support.'
                     ]
                 },
                 {
                     title: 'Great local multiplayer games built for PS5',
                     descript: [
-                        'Grab an extra DualSense wireless controller for PS5 and play with (or challenge) your friends in an collection of exhilarating multiplayer games.',
-                        'Learn how the DualSense wireless controller brings these experiences to life here.',
+                        'Grab an extra DualSense wireless controller for PS5 and play with (or challenge) your friends in an collection of exhilarating multiplayer games.\n' +
+                        'Learn how the DualSense wireless controller brings these experiences to life here.'
                     ]
                 }
             ],
-            '74.99'
+            74.99
         ),
         ['DUALSHOCK®4 Wireless Controller for PS4™']: new consolesOrAccessTemplateWithColors(
             {
@@ -605,13 +605,22 @@ module.exports = async function () {
                     title: 'DUALSHOCK®4 Key Features',
                     descript: [
                         'Enjoy comfortable wireless control with textured grips, precision sticks and a built-in rechargeable battery.',
-                        'Interact with your games in different intuitive ways using the touch pad, motion sensor, integrated light bar and built-in speaker.*',
+                    ]
+                },
+                {
+                    title: '',
+                    descript: [
+                        'Interact with your games in different intuitive ways using the touch pad, motion sensor, integrated light bar and built-in speaker.*'
+                    ]
+                },
+                {
+                    title: '',
+                    descript: [
                         'Use the SHARE button to upload your gameplay videos and screenshots, or livestream your games to the world.**',
-
                     ]
                 },
             ],
-            '49.99'
+            49.99
         ),
         ['PS5™ Console Covers']: new consolesOrAccessTemplateWithColors(
             {
@@ -694,12 +703,21 @@ module.exports = async function () {
                     title: 'PS5 Console Covers Key Features',
                     descript: [
                         'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.',
-                        'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.',
-                        'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
                     ]
-                }
+                },
+                {
+                    title: '',
+                    descript: [
+                        'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.'
+                    ]
+                }, {
+                title: '',
+                descript: [
+                    'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
+                ]
+            }
             ],
-            '49.99'
+            49.99
         ),
         ['PS5™ Console Covers (model group - slim)']: new consolesOrAccessTemplateWithColors(
             {
@@ -735,19 +753,23 @@ module.exports = async function () {
                 {
                     title: 'PS5 Console Covers Key Features',
                     descript: [
-                        'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.\n' +
-                        '\n' +
-                        ' \n' +
-                        '\n' +
-                        'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.\n' +
-                        '\n' +
-                        ' \n' +
-                        '\n' +
+                        'Made by PlayStation: The only console covers made by PlayStation for PS5 that are designed to deliver the quality level you know and trust.'
+                    ]
+                },
+                {
+                    title: '',
+                    descript: [
+                        'Easy to Use: Just remove your white PlayStation 5 console covers and click your new covers into place.'
+                    ]
+                },
+                {
+                    title: '',
+                    descript: [
                         'Complete the Look: Pair your new PlayStation 5 console covers with a matching DualSense™ wireless controller color to create a stunningly vivid set.**'
                     ]
                 }
             ],
-            '59.99'
+            59.99
         ),
         ['WD BLACK™ SN850P NVMe™ SSD for PS5™ consoles']: new consolesOrAccessTemplateWithColors(
             {
@@ -785,24 +807,29 @@ module.exports = async function () {
             ],
             [
                 {
-                    title: '4TB WD_BLACK™ SN850P NVMe™ SSD for PS5™ consoles key features',
+                    title: 'WD_BLACK™ SN850P NVMe™ SSD for PS5™ consoles key features',
                     descript: [
                         'Officially Licensed for Your PS5™ Console\n' +
-                        'Store and play more titles on the drive that’s officially tested and licensed for your PS5™ console so you can keep gaming with confidence.',
+                        'Store and play more titles on the drive that’s officially tested and licensed for your PS5™ console so you can keep gaming with confidence.\n' +
                         'Exclusive Heatsink Design\n' +
-                        'With an exclusive heatsink design featuring the PlayStation® logo and optimized for the PlayStation®5 console’s M.2 slot, installation and setup is worry-free.',
+                        'With an exclusive heatsink design featuring the PlayStation® logo and optimized for the PlayStation®5 console’s M.2 slot, installation and setup is worry-free.\n' +
                         'Store More, Play More, Fast\n' +
-                        'With up to 4TB* capacity, your PlayStation®5 console has the additional space to store up to 100 games*** so you still have room for the next big title.',
-                        'Get the Ultimate Gaming Edge over your Competition\n' +
-                        'Take advantage of irrational PCIe® Gen4 NVMe™ speeds up to 7,300MB/s read and 6,600MB/s** write for a responsive and seamless gaming experience.',
+                        'With up to 4TB* capacity, your PlayStation®5 console has the additional space to store up to 100 games*** so you still have room for the next big title.\n' +
+                        'Get the Ultimate Gaming Edge over your Competition'
+                    ]
+                },
+                {
+                    title: '',
+                    descript: [
+                        'Take advantage of irrational PCIe® Gen4 NVMe™ speeds up to 7,300MB/s read and 6,600MB/s** write for a responsive and seamless gaming experience.\n' +
                         'Never Stop Playing\n' +
-                        'Experience uninterrupted gameplay with a heatsink that keeps your WD_BLACK™ drive running cool and reliability that you can only get from a brand you trust',
+                        'Experience uninterrupted gameplay with a heatsink that keeps your WD_BLACK™ drive running cool and reliability that you can only get from a brand you trust\n' +
                         'No Compromises\n' +
                         'Play directly from the drive and eliminate the need to transfer or delete games from your console with tested and approved storage for your PS5™ console.'
                     ]
                 }
             ],
-            ['139.99', '209.99', '389.99'],
+            [139.99, 209.99, 389.99],
         ),
         ['PULSE Elite™ wireless headset - PS5']:
             new consolesOrAccessTemplateWithoutColors(
@@ -826,37 +853,37 @@ module.exports = async function () {
                     {
                         title: 'Next Generation Gaming Audio',
                         descript: [
-                            'How Games Were Made to Sound™',
-                            'Enjoy extraordinary lifelike sound in your favorite games.',
-                            'Planar Magnetic Drivers - Studio-inspired drivers reproduce soundscapes with ultra-low distortion to deliver rich details and deep clear bass so you can hear exactly what the game developers intended.',
-                            'PlayStation Link™ Technology - Enjoy a lossless and lightning-fast ultra-low latency wireless connection to your PS5® console, PC, Mac® and PlayStation Portal™ remote player.',
+                            'How Games Were Made to Sound™\n' +
+                            'Enjoy extraordinary lifelike sound in your favorite games.\n' +
+                            'Planar Magnetic Drivers - Studio-inspired drivers reproduce soundscapes with ultra-low distortion to deliver rich details and deep clear bass so you can hear exactly what the game developers intended.\n' +
+                            'PlayStation Link™ Technology - Enjoy a lossless and lightning-fast ultra-low latency wireless connection to your PS5® console, PC, Mac® and PlayStation Portal™ remote player.\n' +
                             'AI-enhanced Noise Rejection - Be heard loud and clear with microphone noise-rejection technology powered by artificial intelligence.'
                         ]
                     },
                     {
                         title: 'Multi-Device Connectivity',
                         descript: [
-                            'Go where adventure takes you with the ability to wirelessly connect to a range of devices.',
-                            'Bluetooth® - Go mobile by directly connecting your earbuds to a phone or tablet.',
+                            'Go where adventure takes you with the ability to wirelessly connect to a range of devices.\n' +
+                            'Bluetooth® - Go mobile by directly connecting your earbuds to a phone or tablet.\n' +
                             'Dual Device Connectivity - Listen to audio from a PlayStation Link™ and Bluetooth® device simultaneously to stay in play as you answer calls or enjoy music from a mobile device.'
                         ]
                     },
                     {
                         title: 'Command and Control',
                         descript: [
-                            'Lead your squad to victory with crystal-clear voice capture and easy-access controls.',
-                            'Retractable Microphone - Fully retract the integrated mic when not in use.',
+                            'Lead your squad to victory with crystal-clear voice capture and easy-access controls.\n' +
+                            'Retractable Microphone - Fully retract the integrated mic when not in use.\n' +
                             'Intuitive Controls - Keep your head in the game with easy-access volume and mic mute buttons.'
                         ]
                     },
                     {
                         title: 'Always Be Ready for Great Play',
                         descript: [
-                            'Enjoy epic gaming sessions with up to 30 hours of battery life and quick charging.',
-                            'Long Battery - Stay in play with up to 30 hours of battery life.',
-                            'Quick Charging - Get back into the action with up to 2 hours of battery life from a 10 minute charge.',
-                            'Charging Hanger - Charge and display your headset with the included hanger* so it’s ready whenever you are.',
-                            'Play in Comfort - Refined plush ear cups enable a wide range of motion while the headband strap suspension keeps the headset feeling light.',
+                            'Enjoy epic gaming sessions with up to 30 hours of battery life and quick charging.\n' +
+                            'Long Battery - Stay in play with up to 30 hours of battery life.\n' +
+                            'Quick Charging - Get back into the action with up to 2 hours of battery life from a 10 minute charge.\n' +
+                            'Charging Hanger - Charge and display your headset with the included hanger* so it’s ready whenever you are.\n' +
+                            'Play in Comfort - Refined plush ear cups enable a wide range of motion while the headband strap suspension keeps the headset feeling light.\n' +
                             'PlayStation Portal™ Remote Player Ready - Directly connect to the remote player with PlayStation Link™ technology to enjoy lifelike, lightning-fast audio wherever you have Wi-Fi** in your house.'
                         ]
                     }
@@ -869,7 +896,7 @@ module.exports = async function () {
                     'USB cable',
                     'Printed materials',
                 ],
-                '149.99'
+                149.99
             ),
         ['PULSE Explore™ wireless earbuds - PS5']:
             new consolesOrAccessTemplateWithoutColors(
@@ -898,36 +925,36 @@ module.exports = async function () {
                     {
                         title: 'Next Generation Gaming Audio',
                         descript: [
-                            'How Games Were Made to Sound™',
-                            'Enjoy extraordinary lifelike sound in your favorite games.',
-                            'Planar Magnetic Drivers - Studio-inspired drivers reproduce soundscapes with ultra-low distortion to deliver rich details and deep clear bass so you can hear exactly what the game developers intended.',
-                            'PlayStation Link™ Technology - Enjoy a lossless and lightning-fast ultra-low latency wireless connection to your PS5® console, PC, Mac® and PlayStation Portal™ remote player.',
+                            'How Games Were Made to Sound™\n' +
+                            'Enjoy extraordinary lifelike sound in your favorite games.\n' +
+                            'Planar Magnetic Drivers - Studio-inspired drivers reproduce soundscapes with ultra-low distortion to deliver rich details and deep clear bass so you can hear exactly what the game developers intended.\n' +
+                            'PlayStation Link™ Technology - Enjoy a lossless and lightning-fast ultra-low latency wireless connection to your PS5® console, PC, Mac® and PlayStation Portal™ remote player.\n' +
                             'AI-enhanced Noise Rejection - Be heard loud and clear with microphone noise-rejection technology powered by artificial intelligence.'
                         ]
                     },
                     {
                         title: 'Multi-Device Connectivity',
                         descript: [
-                            'Go where adventure takes you with the ability to wirelessly connect to a range of devices.',
-                            'Bluetooth® - Go mobile by directly connecting your earbuds to a phone or tablet.',
+                            'Go where adventure takes you with the ability to wirelessly connect to a range of devices.\n' +
+                            'Bluetooth® - Go mobile by directly connecting your earbuds to a phone or tablet.\n' +
                             'Dual Device Connectivity - Listen to audio from a PlayStation Link™ and Bluetooth® device simultaneously to stay in play as you answer calls or enjoy music from a mobile device.'
                         ]
                     },
                     {
                         title: 'Command and Control',
                         descript: [
-                            'Lead your squad to victory with crystal-clear voice capture and easy-access controls.',
-                            'Integrated Microphones - Take calls and chat with teammates through two hidden mics.',
+                            'Lead your squad to victory with crystal-clear voice capture and easy-access controls.\n' +
+                            'Integrated Microphones - Take calls and chat with teammates through two hidden mics.\n' +
                             'Intuitive Controls - Keep your head in the game with easy-access volume and mic mute buttons.'
                         ]
                     },
                     {
                         title: 'Built for Adventure',
                         descript: [
-                            'Enjoy lifelike sound wherever you go with a portable design and charging case.',
-                            'Portable Form Factor - Go wherever play takes you with a lightweight, comfortable design packed full of cutting-edge features.',
-                            'Built-in Battery and Charging Case - Stay in play with up to 5 hours of battery life and up to an additional 10 hours via the included charging case.',
-                            'Multiple Earbud Tips - Choose between three extra pairs of included earbud tips to find the best fit for you.',
+                            'Enjoy lifelike sound wherever you go with a portable design and charging case.\n' +
+                            'Portable Form Factor - Go wherever play takes you with a lightweight, comfortable design packed full of cutting-edge features.\n' +
+                            'Built-in Battery and Charging Case - Stay in play with up to 5 hours of battery life and up to an additional 10 hours via the included charging case.\n' +
+                            'Multiple Earbud Tips - Choose between three extra pairs of included earbud tips to find the best fit for you.\n' +
                             'PlayStation Portal™ Remote Player Ready - Directly connect to the remote player with PlayStation Link™ technology to enjoy lifelike, lightning-fast audio wherever you have Wi-Fi* in your house.'
                         ]
                     }
@@ -940,7 +967,7 @@ module.exports = async function () {
                     'USB cable',
                     'Printed materials',
                 ],
-                '199.00'
+                199.00
             ),
         ['PlayStation Link™ USB adapter']:
             new consolesOrAccessTemplateWithoutColors(
@@ -962,21 +989,26 @@ module.exports = async function () {
                     {
                         title: 'PlayStation Link™ USB adapter key features',
                         descript: [
-                            'Never Miss a Beat',
-                            'Multiple PlayStation Link™ USB adapters make it easier for players to enjoy a lightning-fast, lossless connection on more of their devices.',
+                            'Never Miss a Beat\n' +
+                            'Multiple PlayStation Link™ USB adapters make it easier for players to enjoy a lightning-fast, lossless connection on more of their devices.\n' +
                             'Seamless Switching\n' +
-                            'Switch between compatible devices with ease.',
-                            'Lightning-Fast Speed\n' +
-                            'Secure a stable, ultra-low latency connection so your audio keeps up with even the most fast paced on-screen action.',
+                            'Switch between compatible devices with ease.\n' +
+                            'Lightning-Fast Speed'
+                        ]
+                    },
+                    {
+                        title: '',
+                        descript: [
+                            'Secure a stable, ultra-low latency connection so your audio keeps up with even the most fast paced on-screen action.\n' +
                             'Lossless Audio\n' +
-                            'Thanks to lossless technology, players can enjoy the convenience of a wireless connection without missing a single audible detail. Surround yourself in atmosphere shaping subtle sound effects and pick-up on crucial audio cues that warn you of approaching enemies.',
+                            'Thanks to lossless technology, players can enjoy the convenience of a wireless connection without missing a single audible detail. Surround yourself in atmosphere shaping subtle sound effects and pick-up on crucial audio cues that warn you of approaching enemies.\n' +
                             'Simple Setup\n' +
                             'Get gaming by simply inserting the adapter and pairing your headset or earbuds. No need to download any specific PlayStation Link™ software or drivers.'
                         ]
                     }
                 ],
                 [],
-                '24.99'
+                24.99
             ),
         ['Sony 27” INZONE M9 4K HDR 144Hz Gaming Monitor']:
             new consolesOrAccessTemplateWithoutColors(
@@ -996,21 +1028,37 @@ module.exports = async function () {
                 ],
                 [
                     {
-                        title: '27" INZONE M9 Gaming Monitor key features',
-                        descript: [
-                            'Perfect for PlayStation® 5 – Auto HDR Tone Mapping4 and Auto Genre Picture Mode5 creates a fantastic PS5™ console gaming experience.',
-                            'See enhanced contrast with more detail in shadows and highlights from precisely controlled Full Array Local Dimming backlighting technology.',
-                            'With four times the pixels of Full HD monitors, enjoy crystal-clear detailed images with 4K resolution.1',
-                            'Get the split-second advantage that makes all the difference with ultra-fast 144Hz refresh rate.',
-                            'Virtually eliminate screen tearing and stuttering with compatibility for Nvidia® G-SYNC®2 and HDMI 2.1 VRR.3',
-                            'DisplayHDR™ 600 certification allows you to experience all your content in vivid HDR contrast with high peak brightness of 600 nits.',
-                            'With over 95% coverage of DCI-P3 spectrum, discover an extended range of over a billion vibrant colors for breathtaking immersive gaming.',
-                            'Less ghosting and blur with 1ms GtG response time ensures you see what’s happening with absolute clarity for immediate reaction.',
-                            '\n' +
-                            'The unique height and tilt adjustable tripod stand provides total gaming comfort for all your peripherals while optimizing desk space.6',
-                            'Variety of inputs – Two HDMI 2.1 ports, DisplayPort™ 1.4, and USB Type-C (DisplayPort Alternate Mode)',
-                            'Quickly and easily adjust monitor settings and assign specific picture modes to individual applications and games using the INZONE Hub PC software.7'
-                        ]
+                        title: 'Sony 27” INZONE M3 Full HD HDR 240Hz Gaming Monitor',
+                        descript: ['Exclusive Features for PlayStation®5\n' +
+                        'Auto HDR Tone Mapping* and Auto Genre Picture Mode** creates a fantastic PS5™ console gaming experience.\n' +
+                        '\n' +
+                        '240Hz refresh rate\n' +
+                        'Get the split-second advantage that makes all the difference with lightning-fast refresh rate.\n' +
+                        '\n' +
+                        'Nvidia® G-SYNC®*** and HDMI 2.1 VRR**** compatible\n' +
+                        'Display refresh rate is dynamically adjusted virtually eliminating screen tearing and stuttering for smoother gameplay.']
+                    },
+                    {
+                        title: '',
+                        descript: ['DisplayHDR™ 400 Certified\n' +
+                        'Experience all your content in vivid HDR color with accurate contrast and peak brightness of 400 nits.\n' +
+                        '\n' +
+                        'Over 99% sRGB coverage\n' +
+                        'Fill your games with a wide range of rich, vibrant colors with more shades of hues for breathtaking immersive gaming.\n' +
+                        '\n' +
+                        'IPS display with 1ms GtG response time\n' +
+                        'Less ghosting and blur ensures you see what’s happening with absolute clarity for immediate reaction.']
+                    },
+                    {
+                        title: '',
+                        descript: ['Versatile, adjustable design\n' +
+                        'The unique height and tilt adjustable tripod stand provides total gaming comfort for all your peripherals while optimizing desk space.\n' +
+                        '\n' +
+                        'Variety of inputs\n' +
+                        'Two HDMI 2.1 ports, DisplayPort™ 1.4, and USB Type-C (DP Alternate Mode).\n' +
+                        '\n' +
+                        'PC Software\n' +
+                        'Quickly and easily adjust monitor settings and assign specific picture modes to individual applications and games using the INZONE Hub PC***** software.']
                     }
                 ],
                 [
@@ -1021,7 +1069,7 @@ module.exports = async function () {
                     'INZONE sticker',
                     'Printed materials'
                 ],
-                '699.99'
+                699.99
             ),
         ['Sony 27” INZONE M3 Full HD HDR 240Hz Gaming Monitor']:
             new consolesOrAccessTemplateWithoutColors(
@@ -1038,19 +1086,48 @@ module.exports = async function () {
                 ],
                 [
                     {
-                        title: '27" INZONE M3 Gaming Monitor key features',
+                        title: '27" INZONE M9 Gaming Monitor key features',
                         descript: [
-                            'Features for PlayStation® 5 – Exclusive features – Auto HDR Tone Mapping3 and Auto Genre Picture Mode4 – creates a fantastic PS5™ console gaming experience.',
+                            'Exclusive Features for PlayStation®5\n' +
+                            'Auto HDR Tone Mapping* and Auto Genre Picture Mode** creates a fantastic PS5™ console gaming experience.\n' +
                             '\n' +
-                            '240Hz refresh rate – Get the split-second advantage that makes all the difference with lightning-fast refresh rate.',
-                            'Nvidia® G-SYNC®1 and HDMI 2.1 VRR2 compatible – Display refresh rate is dynamically adjusted virtually eliminating screen tearing and stuttering for smoother gameplay.',
-                            'DisplayHDR™ 400 Certified – Experience all your content in vivid HDR color with accurate contrast and peak brightness of 400 nits.',
+                            'Full Array Local Dimming backlighting technology\n' +
+                            'See enhanced contrast with more detail in shadows and highlights from precisely controlled Full Array Local Dimming backlighting technology.\n' +
                             '\n' +
-                            'Over 99% sRGB coverage – Fill your games with a wide range of rich, vibrant colors with more shades of hues for breathtaking immersive gaming.',
-                            'IPS display with 1ms GtG response time – Less ghosting and blur ensures you see what’s happening with absolute clarity for immediate reaction.',
-                            'Versatile, adjustable design – The unique height and tilt adjustable tripod stand provides total gaming comfort for all your peripherals while optimizing desk space.5',
-                            'Variety of inputs – Two HDMI 2.1 ports, DisplayPort™ 1.4, and USB Type-C (DP Alternate Mode)',
-                            'PC Software – Quickly and easily adjust monitor settings and assign specific picture modes to individual applications and games using the INZONE Hub PC software.6'
+                            '4K Resolution\n' +
+                            'With four times the pixels of Full HD monitors, enjoy crystal-clear detailed images with 4K resolution***.\n' +
+                            '\n' +
+                            '144Hz refresh rate\n' +
+                            'Get the split-second advantage that makes all the difference with ultra-fast 144Hz refresh rate.'
+                        ]
+                    },
+                    {
+                        title: '',
+                        descript: [
+                            'Nvidia® G-SYNC®**** and HDMI 2.1 VRR***** compatible\n' +
+                            'Display refresh rate is dynamically adjusted virtually eliminating screen tearing and stuttering for smoother gameplay.\n' +
+                            '\n' +
+                            'DisplayHDR™ 600 Certified\n' +
+                            'Experience all your content in vivid HDR contrast with high peak brightness of 600 nits.\n' +
+                            '\n' +
+                            'Over 95% coverage of DCI-P3 spectrum\n' +
+                            'Discover an extended range of over a billion vibrant colors for breathtaking immersive gaming.'
+                        ]
+                    },
+                    {
+                        title: '',
+                        descript: [
+                            'IPS display with 1ms GtG response time\n' +
+                            'Less ghosting and blur ensures you see what’s happening with absolute clarity for immediate reaction.\n' +
+                            '\n' +
+                            'Versatile, adjustable design\n' +
+                            'The unique height and tilt adjustable tripod stand provides total gaming comfort for all your peripherals while optimizing desk space.\n' +
+                            '\n' +
+                            'Variety of inputs\n' +
+                            'Two HDMI 2.1 ports, DisplayPort™ 1.4, and USB Type-C (DP Alternate Mode).\n' +
+                            '\n' +
+                            'PC Software\n' +
+                            'Quickly and easily adjust monitor settings and assign specific picture modes to individual applications and games using the INZONE Hub PC****** software.'
                         ]
                     }
                 ],
@@ -1063,7 +1140,7 @@ module.exports = async function () {
                     'INZONE sticker',
                     'Printed materials'
                 ],
-                '499.99'
+                499.99
             ),
         ['DualSense™ Charging Station']:
             new consolesOrAccessTemplateWithoutColors(
@@ -1082,14 +1159,14 @@ module.exports = async function () {
                     {
                         title: 'DualSense Charging Station key features',
                         descript: [
-                            'Click. Charge. Play.',
-                            'Click-in design: Dock up to two DualSense™ or DualSense Edge™ wireless controllers effortlessly with the charging station’s click-in design – and leave them to charge at your convenience.',
+                            'Click. Charge. Play.\n' +
+                            'Click-in design: Dock up to two DualSense™ or DualSense Edge™ wireless controllers effortlessly with the charging station’s click-in design – and leave them to charge at your convenience.\n' +
                             'Free up USB ports: Your controllers charge as quickly as when connected to your PS5™ console – so you can free up USB ports without reducing performance.'
                         ]
                     }
                 ],
                 [],
-                '29.99'
+                29.99
             ),
         ['PlayStation VR2 Sense™ Controller Charging Station']:
             new consolesOrAccessTemplateWithoutColors(
@@ -1107,9 +1184,9 @@ module.exports = async function () {
                     {
                         title: 'Click. Charge. Play.',
                         descript: [
-                            'Charge left and right controllers simultaneously - Be ready for your next gaming session.',
-                            'Free up USB ports - Controllers charge as quickly as when connected to your PS5™ console.',
-                            'Click-in design - Simply dock your controllers to the charging station via the supplied charging adaptors.'
+                            'Charge left and right controllers simultaneously - Be ready for your next gaming session.\n' +
+                            'Free up USB ports - Controllers charge as quickly as when connected to your PS5™ console.\n' +
+                            'Click-in design - Simply dock your controllers to the charging station via the supplied charging adaptors'
                         ]
                     }
                 ],
@@ -1120,7 +1197,7 @@ module.exports = async function () {
                     'Charging adaptors x2',
                     'Instruction manual'
                 ],
-                '49.99'
+                49.99
             ),
         ['PlayStation®VR2']:
             new consolesOrAccessTemplateWithoutColors(
@@ -1150,10 +1227,14 @@ module.exports = async function () {
                     {
                         title: 'Feel a New Real™',
                         descript: [
-                            'Cutting edge performance - Enjoy 4K HDR visuals1, a 110º field of view and advanced graphical rendering.2',
-                            'PlayStation VR2 Sense™ technology - Feel real sensations and emotions with eye tracking, headset feedback, 3D Audio and highly intuitive controls.2',
-                            'Quick setup - Jump straight into the action with a simple one-cable connection to your PS5™ console.',
-                            'Thrilling new worlds - Surround yourself in a new generation of genre-defining VR games.',
+                            'Cutting edge performance - Enjoy 4K HDR visuals1, a 110º field of view and advanced graphical rendering.2\n' +
+                            'PlayStation VR2 Sense™ technology - Feel real sensations and emotions with eye tracking, headset feedback, 3D Audio and highly intuitive controls.2'
+                        ]
+                    },
+                    {
+                        title: '',
+                        descript: [
+                            'Thrilling new worlds - Surround yourself in a new generation of genre-defining VR games.\n' +
                             '30+ games in launch window lineup - We are currently tracking more than 30 games for the launch window through March, including titles from popular IP like Horizon Call of the Mountain, No Man’s Sky, and Resident Evil Village.'
                         ]
                     }
@@ -1166,7 +1247,7 @@ module.exports = async function () {
                     'Three pairs of earpieces',
                     'Printed materials'
                 ],
-                '549.99'
+                549.99
             ),
         ['PlayStation®VR2 Horizon Call of the Mountain™ Bundle']:
             new consolesOrAccessTemplateWithoutColors(
@@ -1202,11 +1283,16 @@ module.exports = async function () {
                     {
                         title: 'Climb to New Heights',
                         descript: [
-                            'Play from a new perspective – experience the sensations of height and wonder as you take in stunning vistas across the Carja and Nora homelands through the eyes of new character, Ryas.',
-                            'View the breathtaking natural world of Horizon in 360 degrees and interact with your surroundings using two PlayStation®VR2 Sense™ controllers.',
-                            'Enjoy immersive action – use intuitive movements to climb mountains, hunt machines, shoot your bow and craft items from raw materials.',
-                            'Brave a new adventure – enter a living, breathing world of dangerous machines, tribal lore, exciting quests and new and returning characters.',
-                            'Share the experience – feel the adrenaline rush in a riverboat ride filled with surprises, that offers the chance to show off PS VR2 to your friends and family.',
+                            'Play from a new perspective – experience the sensations of height and wonder as you take in stunning vistas across the Carja and Nora homelands through the eyes of new character, Ryas.\n'+
+                            'View the breathtaking natural world of Horizon in 360 degrees and interact with your surroundings using two PlayStation®VR2 Sense™ controllers.\n' +
+                            'Enjoy immersive action – use intuitive movements to climb mountains, hunt machines, shoot your bow and craft items from raw materials.'
+                        ]
+                    },
+                    {
+                        title: '',
+                        descript: [
+                            'Brave a new adventure – enter a living, breathing world of dangerous machines, tribal lore, exciting quests and new and returning characters.\n' +
+                            'Share the experience – feel the adrenaline rush in a riverboat ride filled with surprises, that offers the chance to show off PS VR2 to your friends and family.\n'+
                             '30+ games in launch window lineup - We are currently tracking more than 30 games for the launch window through March, including titles from popular IP like Horizon Call of the Mountain, No Man’s Sky, and Resident Evil Village.'
                         ]
                     }
@@ -1220,7 +1306,7 @@ module.exports = async function () {
                     'Three pairs of earpieces',
                     'Printed materials'
                 ],
-                '599.99'
+                599.99
             ),
     };
 
@@ -1256,6 +1342,7 @@ module.exports = async function () {
                 title: accessKey,
                 img: accessoriesList[accessKey]["mainCover"] ? accessoriesList[accessKey]["mainCover"] : accessoriesList[accessKey]["allImgsAndTitles"][a][0],
                 page: "1",
+                Price: Array.isArray(accessoriesList[accessKey].price) ? accessoriesList[accessKey].price[0] : accessoriesList[accessKey].price,
                 value: accessoriesList[accessKey]
             })
 
