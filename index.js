@@ -1,3 +1,4 @@
+require('dotenv').config();
 const parseResponse = require('./modules/core/parseResonse');
 const logger = require('./modules/core/logger');
 const dbConnection = require('./modules/core/db');
