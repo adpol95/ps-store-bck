@@ -10,9 +10,12 @@ const getNews = require('./modules/newsAndProducts/outterDatasNews.js');
 const getConundrums = require('./modules/conundrums/outerDataGet.js');
 
 const express = require('express');
-const app = express();
-const PORT = 5000;
+const http = require('http');
+const socket = require('./modules/core/socket');
 
+const app = express();
+const server = http.createServer(app);
+const PORT = 5000;
 
 logger(app);
 parseResponse(app);
@@ -20,6 +23,9 @@ dbConnection(app);
 cors(app);
 routes(app);
 errorHandler(app);
+
+// Initialize Socket.io
+socket.init(server);
 
 getConundrums()
     .then(() => {
@@ -46,6 +52,6 @@ getNews()
 // }, 25920000)
 
 
-app.listen(PORT, () => {
-    console.log(`Examples for host ${PORT}`)
+server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`)
 })

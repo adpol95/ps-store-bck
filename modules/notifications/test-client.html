@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.io Notification Test Center</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Socket.io client script -->
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0c10;
+            --bg-card: rgba(22, 28, 36, 0.7);
+            --bg-card-border: rgba(255, 255, 255, 0.08);
+            --accent-primary: #6366f1;
+            --accent-primary-glow: rgba(99, 102, 241, 0.3);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #ef4444;
+            --info: #3b82f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(at 10% 20%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 90% 80%, rgba(16, 185, 129, 0.1) 0px, transparent 50%);
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn Down 0.8s ease-out;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #a5b4fc 0%, #6366f1 50%, #4338ca 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--bg-card-border);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(99, 102, 241, 0.25);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--bg-card-border);
+            padding-bottom: 12px;
+        }
+
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 6px 12px;
+            border-radius: 50px;
+            border: 1px solid var(--bg-card-border);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--error);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .status-dot.connected {
+            background-color: var(--success);
+            box-shadow: 0 0 10px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input, select, textarea {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--bg-card-border);
+            border-radius: 10px;
+            padding: 12px 16px;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-primary);
+            background: rgba(255, 255, 255, 0.07);
+            box-shadow: 0 0 12px var(--accent-primary-glow);
+        }
+
+        button {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--accent-primary);
+            color: var(--text-main);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: rgba(99, 102, 241, 0.1);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        /* Notifications Toast Styling */
+        #toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .toast {
+            background: rgba(22, 28, 36, 0.95);
+            border-left: 5px solid var(--info);
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            transform: translateX(120%);
+            animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            transition: all 0.3s ease;
+            border-top: 1px solid var(--bg-card-border);
+            border-right: 1px solid var(--bg-card-border);
+            border-bottom: 1px solid var(--bg-card-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toast::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            pointer-events: none;
+        }
+
+        .toast.success { border-left-color: var(--success); }
+        .toast.warning { border-left-color: var(--warning); }
+        .toast.error { border-left-color: var(--error); }
+        .toast.info { border-left-color: var(--info); }
+
+        .toast-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .toast-body {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .toast-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            align-self: flex-end;
+            margin-top: 4px;
+        }
+
+        .toast-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            box-shadow: none;
+            padding: 0;
+            font-size: 1.1rem;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .toast-close:hover {
+            color: var(--text-main);
+            background: transparent;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .feed-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            max-height: 300px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 16px;
+            border: 1px solid var(--bg-card-border);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .feed-placeholder {
+            color: var(--text-muted);
+            text-align: center;
+            margin: auto;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .feed-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--bg-card-border);
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .feed-item-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .feed-item-title {
+            font-weight: 600;
+        }
+
+        .feed-item-badge {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+        .badge-warning { background: rgba(245, 158, 11, 0.2); color: var(--warning); }
+        .badge-error { background: rgba(239, 68, 68, 0.2); color: var(--error); }
+        .badge-info { background: rgba(59, 130, 246, 0.2); color: var(--info); }
+
+        /* Animations */
+        @keyframes slideIn {
+            to { transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.6; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Token input styling */
+        .token-helper {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: -6px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Socket.io Notification Center</h1>
+        <p>Real-time notifications backend interface and tester</p>
+    </header>
+
+    <div class="container">
+        <!-- Panel 1: Socket.io Client Connection & Feed -->
+        <div class="card">
+            <div class="card-title">
+                <span>1. Client Connection</span>
+                <div class="status-badge">
+                    <span id="socket-status-dot" class="status-dot"></span>
+                    <span id="socket-status-text">Disconnected</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="jwt-token">JWT Token (Optional)</label>
+                <input type="text" id="jwt-token" placeholder="Paste ACCESS_TOKEN here to auth user...">
+                <div class="token-helper">Connects as Guest if empty. Decodes token to register to user-specific rooms.</div>
+            </div>
+
+            <div class="row">
+                <button id="btn-connect" class="btn-outline">Connect</button>
+                <button id="btn-disconnect" class="btn-outline" style="border-color: var(--error); color: var(--error);">Disconnect</button>
+            </div>
+
+            <div class="form-group" style="flex-grow: 1;">
+                <label>Notification Feed (Recent)</label>
+                <div class="feed-container" id="feed-container">
+                    <div class="feed-placeholder" id="feed-placeholder">No notifications received yet. Connect the socket to receive events.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel 2: HTTP Notification Emitter -->
+        <div class="card">
+            <div class="card-title">
+                <span>2. Broadcast / Emit Test</span>
+            </div>
+
+            <div class="form-group">
+                <label for="target-type">Recipient Target</label>
+                <select id="target-type">
+                    <option value="all">All Connected Clients (Broadcast)</option>
+                    <option value="user">User ID (Targeted Room)</option>
+                    <option value="username">Username (Targeted Room)</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="target-id-group" style="display: none;">
+                <label id="target-id-label" for="target-id">Target Identifier</label>
+                <input type="text" id="target-id" placeholder="Enter target ID or userName...">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="notif-type">Notification Type</label>
+                    <select id="notif-type">
+                        <option value="success">Success</option>
+                        <option value="info">Info</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notif-title">Title</label>
+                    <input type="text" id="notif-title" value="New Alert">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="notif-message">Message</label>
+                <textarea id="notif-message" rows="3" placeholder="Enter notification message here...">Your request has been processed successfully.</textarea>
+            </div>
+
+            <button id="btn-send">Trigger Notification</button>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Area -->
+    <div id="toast-container"></div>
+
+    <script>
+        let socket = null;
+        
+        // Element references
+        const jwtTokenInput = document.getElementById('jwt-token');
+        const btnConnect = document.getElementById('btn-connect');
+        const btnDisconnect = document.getElementById('btn-disconnect');
+        const socketStatusDot = document.getElementById('socket-status-dot');
+        const socketStatusText = document.getElementById('socket-status-text');
+        const feedContainer = document.getElementById('feed-container');
+        const feedPlaceholder = document.getElementById('feed-placeholder');
+        
+        const targetType = document.getElementById('target-type');
+        const targetIdGroup = document.getElementById('target-id-group');
+        const targetIdLabel = document.getElementById('target-id-label');
+        const targetIdInput = document.getElementById('target-id');
+        const notifType = document.getElementById('notif-type');
+        const notifTitle = document.getElementById('notif-title');
+        const notifMessage = document.getElementById('notif-message');
+        const btnSend = document.getElementById('btn-send');
+        const toastContainer = document.getElementById('toast-container');
+
+        // Toggle target fields
+        targetType.addEventListener('change', () => {
+            const val = targetType.value;
+            if (val === 'all') {
+                targetIdGroup.style.display = 'none';
+            } else {
+                targetIdGroup.style.display = 'flex';
+                targetIdLabel.textContent = val === 'user' ? 'Target MongoDB User ID' : 'Target Username';
+                targetIdInput.placeholder = val === 'user' ? 'e.g. 60c72b2f9b1d8b2c88f2890a' : 'e.g. johndoe';
+            }
+        });
+
+        // Connect handler
+        btnConnect.addEventListener('click', () => {
+            if (socket) {
+                socket.disconnect();
+            }
+
+            const token = jwtTokenInput.value.trim();
+            const options = {
+                reconnectionAttempts: 3,
+                timeout: 5000,
+            };
+
+            if (token) {
+                options.auth = { token: token };
+            }
+
+            // Connects to current host/port automatically
+            socket = io(options);
+
+            socketStatusText.textContent = 'Connecting...';
+            socketStatusDot.className = 'status-dot';
+
+            socket.on('connect', () => {
+                socketStatusText.textContent = 'Connected (ID: ' + socket.id + ')';
+                socketStatusDot.className = 'status-dot connected';
+                showToast('info', 'System Connection', 'Socket.io successfully connected!');
+            });
+
+            socket.on('disconnect', (reason) => {
+                socketStatusText.textContent = 'Disconnected';
+                socketStatusDot.className = 'status-dot';
+                showToast('warning', 'System Connection', 'Socket.io disconnected: ' + reason);
+            });
+
+            socket.on('connect_error', (error) => {
+                socketStatusText.textContent = 'Connect Error';
+                socketStatusDot.className = 'status-dot';
+                showToast('error', 'Connection Error', error.message || 'Failed to authenticate/connect.');
+            });
+
+            // Listen for notifications
+            socket.on('notification', (data) => {
+                const { title, message, type, timestamp } = data;
+                showToast(type || 'info', title || 'Alert', message || '');
+                addNotificationToFeed(type || 'info', title || 'Alert', message || '', timestamp);
+            });
+
+            // Listener for general checkpong
+            socket.on('pong_client', (data) => {
+                showToast('success', 'Ping Succeeded', 'Server says: ' + data.message);
+            });
+        });
+
+        // Disconnect handler
+        btnDisconnect.addEventListener('click', () => {
+            if (socket) {
+                socket.disconnect();
+                socket = null;
+            }
+            socketStatusText.textContent = 'Disconnected';
+            socketStatusDot.className = 'status-dot';
+        });
+
+        // Trigger notification handler
+        btnSend.addEventListener('click', async () => {
+            const payload = {
+                target: targetType.value,
+                title: notifTitle.value.trim(),
+                message: notifMessage.value.trim(),
+                type: notifType.value
+            };
+
+            if (payload.target === 'user') {
+                payload.userId = targetIdInput.value.trim();
+                if (!payload.userId) {
+                    showToast('error', 'Validation Error', 'Please specify a User ID.');
+                    return;
+                }
+            } else if (payload.target === 'username') {
+                payload.userName = targetIdInput.value.trim();
+                if (!payload.userName) {
+                    showToast('error', 'Validation Error', 'Please specify a Username.');
+                    return;
+                }
+            }
+
+            try {
+                const response = await fetch('/notifications/send-test', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    // Flash trigger success
+                } else {
+                    showToast('error', 'Trigger Failed', result.message || 'Unknown backend error.');
+                }
+            } catch (err) {
+                showToast('error', 'Trigger Error', 'Failed to communicate with API.');
+            }
+        });
+
+        // Dynamic Toast Emitter
+        function showToast(type, title, message) {
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            
+            toast.innerHTML = `
+                <div class="toast-header">
+                    <span>${title}</span>
+                    <button class="toast-close">&times;</button>
+                </div>
+                <div class="toast-body">${message}</div>
+                <div class="toast-time">${new Date().toLocaleTimeString()}</div>
+            `;
+
+            toastContainer.appendChild(toast);
+
+            // Close listener
+            toast.querySelector('.toast-close').addEventListener('click', () => {
+                toast.style.transform = 'translateX(120%)';
+                setTimeout(() => toast.remove(), 300);
+            });
+
+            // Auto dismiss after 5s
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.style.transform = 'translateX(120%)';
+                    setTimeout(() => toast.remove(), 300);
+                }
+            }, 5000);
+        }
+
+        // Add to historical feed
+        function addNotificationToFeed(type, title, message, timestamp) {
+            if (feedPlaceholder) {
+                feedPlaceholder.remove();
+            }
+
+            const timeStr = timestamp ? new Date(timestamp).toLocaleTimeString() : new Date().toLocaleTimeString();
+            const item = document.createElement('div');
+            item.className = 'feed-item';
+            item.innerHTML = `
+                <div class="feed-item-info">
+                    <span class="feed-item-title">${title}</span>
+                    <span style="color: var(--text-muted); font-size: 0.8rem;">${message}</span>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 4px;">
+                    <span class="feed-item-badge badge-${type}">${type}</span>
+                    <span style="font-size: 0.7rem; color: var(--text-muted);">${timeStr}</span>
+                </div>
+            `;
+
+            feedContainer.insertBefore(item, feedContainer.firstChild);
+        }
+    </script>
+</body>
+</html>
